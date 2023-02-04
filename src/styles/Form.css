@@ -1,0 +1,90 @@
+.formContainer {
+    background-color: #dfe0e7;
+    height: 100%;
+}
+
+.header {
+    background-color: #ffffff;
+    font-size: xx-large;
+    border: 3px solid;
+    border-radius: 16px;
+    height: 15%;
+    width: 70%;
+}
+
+.content {
+    position: relative;
+    width: 70%;
+    height: 60%;
+    font-size: x-large;
+    border: 3px solid;
+    border-radius: 16px;
+    background-color: #ffffff;
+}
+
+.actions {
+    width: 70%;
+}
+
+.ui.input input {
+    border: 2px solid;
+    border-radius: 10px;
+}
+
+.error {
+    color: red;
+    text-align: center;
+    font-size: large;
+}
+
+.dislike {
+    position: absolute;
+    top: 85%;
+    left: 25%;
+}
+
+.like {
+    position: absolute;
+    top: 85%;
+    right: 25%;
+}
+
+.swipe {
+    position: absolute;
+    height: 20%;
+    top: 40%;
+    left: 10%;
+}
+
+.ipadLike {
+    position: absolute;
+    top: 85%;
+    right: 35%;
+}
+
+.ipadDislike {
+    position: absolute;
+    top: 85%;
+    left: 35%;
+}
+
+.pinch {
+    position: absolute;
+    height: 20%;
+    bottom: 10%;
+    left: 10%;
+}
+
+.found {
+    position: absolute;
+    height: 20%;
+    bottom: 10%;
+    left: 30%;
+}
+
+.doubleTap {
+    position: absolute;
+    height: 20%;
+    bottom: 10%;
+    left: 25%;
+}
