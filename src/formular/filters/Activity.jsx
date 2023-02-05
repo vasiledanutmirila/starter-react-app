@@ -8,7 +8,7 @@ const Activity = ({ setResults }) => {
 
     const activityOnClick = async () => {
         const response = await axios(
-            'https://cute-tan-oyster-belt.cyclic.app/find/activity',
+            'https://formular-api.cyclic.app/find/activity',
             {
                 method: 'get',
                 params: { activity: JSON.stringify(activity) },
@@ -22,7 +22,7 @@ const Activity = ({ setResults }) => {
     };
 
     return (
-        <div className='flex flex-column'>
+        <div className='filter flex flex-column'>
             <span>Activity</span>
             <Checkbox
                 label='studying'

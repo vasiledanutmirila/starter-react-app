@@ -84,11 +84,10 @@ const SwipeEmulationContent = ({ setSwipeDisabled }) => {
         const isLeftSwipe = distance > minSwipeDistance;
         const isRightSwipe = distance < -minSwipeDistance;
         if (isLeftSwipe || isRightSwipe) {
-            if ( isLeftSwipe ) {
+            if ( isRightSwipe ) {
                 if ( !didAction ) {
                     setTimeUntilAction(Math.floor((Date.now() - start) / 1000));
                     if ( hintTime ) {
-                        console.log(hintTime);
                         setTimeAfterHint(Math.floor((Date.now() - hintTime) / 1000));
                     }
                 }
@@ -99,11 +98,10 @@ const SwipeEmulationContent = ({ setSwipeDisabled }) => {
                     setLike(false);
                 });
             }
-            if ( isRightSwipe ) {
+            if ( isLeftSwipe ) {
                 if ( !didAction ) {
                     setTimeUntilAction(Math.floor((Date.now() - start) / 1000));
                     if ( hintTime ) {
-                        console.log(hintTime);
                         setTimeAfterHint(Math.floor((Date.now() - hintTime) / 1000));
                     }
                 }
@@ -128,15 +126,13 @@ const SwipeEmulationContent = ({ setSwipeDisabled }) => {
     startTime = start;
 
     return (
-        <div className="content flex flex-column items-center justify-around pl4 pr4 relative" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd} onTouchMove={onTouchMove} >
-            <div className='imageContainer h-100 pt3 pb3 relative'>
-                {index < images.length && <img className='h-100' src={images[index]} alt='error' />}
-                {index >= images.length && <div className='h-100 flex items-center'>Done!</div>}
-                {index < images.length && <Button circular icon='close' className={`${index >= ipadImagesNumber ? 'ipadDislike' : 'dislike'}`} size='mini' color={dislike ? 'red' : 'grey'} />}
-                {index < images.length && <Button circular icon='heart' className={`${index >= ipadImagesNumber ? 'ipadLike' : 'like'}`} size='mini' color={like ? 'green' : 'grey'} />}
-                {hint === 'right' && !didAction && <img src={'/images/swipe/swipe-right.png'} alt='error' className='swipe' />}
-                {hint === 'left' && !didAction && <img src={'/images/swipe/swipe-left.png'} alt='error' className='swipe' />}
-            </div>
+        <div className='imageContainer h-75 pt3 pb3 relative' onTouchStart={onTouchStart} onTouchEnd={onTouchEnd} onTouchMove={onTouchMove}>
+            {index < images.length && <img className='h-100' src={images[index]} alt='error' />}
+            {index >= images.length && <div className='h-100 flex items-center'>Done!</div>}
+            {index < images.length && <Button circular icon='close' className={`${index >= ipadImagesNumber ? 'ipadDislike' : 'dislike'}`} size='mini' color={dislike ? 'red' : 'grey'} />}
+            {index < images.length && <Button circular icon='heart' className={`${index >= ipadImagesNumber ? 'ipadLike' : 'like'}`} size='mini' color={like ? 'green' : 'grey'} />}
+            {hint === 'right' && !didAction && <img src={'/images/swipe/swipe-right.png'} alt='error' className='swipe' />}
+            {hint === 'left' && !didAction && <img src={'/images/swipe/swipe-left.png'} alt='error' className='swipe' />}
         </div>
     );
 };

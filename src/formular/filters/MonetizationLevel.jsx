@@ -14,7 +14,7 @@ const MonetizationLevel = ({ setResults }) => {
 
     const monetizationLevelOnClick = async () => {
         const response = await axios(
-            'https://cute-tan-oyster-belt.cyclic.app/find/monetizationLevel',
+            'https://formular-api.cyclic.app/find/monetizationLevel',
             {
                 method: 'get',
                 params: { monetizationLevel: JSON.stringify(monetizationLevel) },
@@ -28,7 +28,7 @@ const MonetizationLevel = ({ setResults }) => {
     };
 
     return (
-        <div className='flex flex-column'>
+        <div className='filter flex flex-column pb4'>
             <span>Monetization level</span>
             <Checkbox
                 label='0-5 ron'

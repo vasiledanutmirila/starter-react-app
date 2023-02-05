@@ -8,11 +8,11 @@ const onChange = (e, { value }, setSwipeOrScroll) => {
     swipeOrScrollValue = value;
 };
 
-const SwipeOrScrollContent = ({ question }) => {
+const SwipeOrScrollContent = () => {
     const [ swipeOrScroll, setSwipeOrScroll ] = useState('swipe');
     return (
     <div className="content flex flex-column items-center justify-around pl4 pr4">
-        <div className="question">{question}</div>
+        <div className="question">Which one do you prefer?</div>
         <Radio
             label='swipe'
             name='radioGroup'

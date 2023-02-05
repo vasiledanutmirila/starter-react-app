@@ -8,7 +8,7 @@ const Education = ({ setResults }) => {
 
     const educationOnClick = async () => {
         const response = await axios(
-            'https://cute-tan-oyster-belt.cyclic.app/find/education',
+            'https://formular-api.cyclic.app/find/education',
             {
                 method: 'get',
                 params: { education: JSON.stringify(education) },
@@ -22,7 +22,7 @@ const Education = ({ setResults }) => {
     };
 
     return (
-        <div className='flex flex-column'>
+        <div className='filter flex flex-column'>
             <span>Education</span>
             <Checkbox
                 label='middleSchool'

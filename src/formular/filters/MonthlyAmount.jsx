@@ -13,7 +13,7 @@ const MonthlyAmount = ({ setResults }) => {
 
     const monthlyAmountOnClick = async () => {
         const response = await axios(
-            'https://cute-tan-oyster-belt.cyclic.app/find/monthlyAmount',
+            'https://formular-api.cyclic.app/find/monthlyAmount',
             {
                 method: 'get',
                 params: { monthlyAmount: JSON.stringify(monthlyAmount) },
@@ -27,7 +27,7 @@ const MonthlyAmount = ({ setResults }) => {
     };
 
     return (
-        <div className='flex flex-column'>
+        <div className='filter flex flex-column'>
             <span>Salary levels(NET)</span>
             <Checkbox
                 label='0-500 ron'

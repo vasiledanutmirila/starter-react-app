@@ -15,7 +15,7 @@ const Reasons = ({ setResults }) => {
 
     const reasonsOnClick = async () => {
         const response = await axios(
-            'https://cute-tan-oyster-belt.cyclic.app/find/reasons',
+            'https://formular-api.cyclic.app/find/reasons',
             {
                 method: 'get',
                 params: { reasons: JSON.stringify(reasons) },
@@ -29,7 +29,7 @@ const Reasons = ({ setResults }) => {
     };
 
     return (
-        <div className='flex flex-column'>
+        <div className='filter flex flex-column'>
             <span>Types of apps</span>
             <Checkbox
                 label='entertainment'

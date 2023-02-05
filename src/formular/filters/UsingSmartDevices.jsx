@@ -17,18 +17,17 @@ const UsingSmartDevices = ({ setResults }) => {
 
     const usingSmartDevicesOnClick = async () => {
         const response = await axios(
-            'https://cute-tan-oyster-belt.cyclic.app/find/usingSmartDevices',
+            'https://formular-api.cyclic.app/find/usingSmartDevices',
             {
                 method: 'get',
                 params: { usingSmartDevicesMin: usingSmartDevicesMin, usingSmartDevicesMax: usingSmartDevicesMax },
             },
         );
-        console.log(response.data);
         setResults(await response.data)
     };
 
     return (
-        <div className='flex flex-column'>
+        <div className='filter flex flex-column'>
             <span>Experience with smart devices:</span>
             <div className='ageMin'>
                 <span>min:</span>

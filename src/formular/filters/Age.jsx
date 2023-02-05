@@ -17,18 +17,17 @@ const Age = ({ setResults }) => {
 
     const ageOnClick = async () => {
         const response = await axios(
-            'https://cute-tan-oyster-belt.cyclic.app/find/age',
+            'https://formular-api.cyclic.app/find/age',
             {
                 method: 'get',
                 params: { ageMin: ageMin, ageMax: ageMax },
             },
         );
-        console.log(response.data);
         setResults(await response.data)
     };
 
     return (
-        <div className='flex flex-column'>
+        <div className='filter flex flex-column pt4'>
             <span>Age</span>
             <div className='ageMin'>
                 <span>min:</span>

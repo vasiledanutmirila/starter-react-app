@@ -57,32 +57,36 @@ const DoubleTapEmulationContent = ({ setDoubleTapDisabled }) => {
             return false;
         }
         event.preventDefault();
-        setScale('2');
-        setFound(true);
-        if ( !didAction ) {
-            setTimeUntilAction(Math.floor((Date.now() - start) / 1000));
-            if ( hintTime ) {
-                setTimeAfterHint(Math.floor((Date.now() - hintTime) / 1000));
+        if (event.touches.length < 2) {
+            setScale('2');
+            setFound(true);
+            if ( !didAction ) {
+                setTimeUntilAction(Math.floor((Date.now() - start) / 1000));
+                if ( hintTime ) {
+                    setTimeAfterHint(Math.floor((Date.now() - hintTime) / 1000));
+                }
             }
+            setDidAction(true);
+            setDoubleTapDisabled(false);
+            sleep(2000).then(() => {
+                if ( index < images.length - 1 ) {
+                    setIndex(index + 1);
+                }
+                setScale('1');
+                setFound(false);
+            });
         }
-        setDidAction(true);
-        setDoubleTapDisabled(false);
-        sleep(2000).then(() => {
-            if ( index < images.length - 1 ) {
-                setIndex(index + 1);
-            }
-            setScale('1');
-            setFound(false);
-        });
     }
 
     return (
-        <div className="content flex flex-column items-center justify-around pl4 pr4 relative">
-            <div className='imageContainer h-100 pt3 pb3 relative' onTouchStart={tapHandler} style={{ scale: scale }}>
-                <img src={images[index]} alt="error" className='h-100' />
-                {found && scale ==='2' && <div className='found'>Found!</div>}
-                {hint && !didAction && <img src={'/images/doubleTap/hint.png'} alt='error' className='doubleTap' />}
-            </div>
+        <div
+            className='imageContainer h-75 pt3 pb3 relative'
+            onTouchStart={tapHandler}
+            style={{ scale: scale }}
+        >
+            <img src={images[index]} alt="error" className='h-100' />
+            {found && scale ==='2' && <div className='found'>Found!</div>}
+            {hint && !didAction && <img src={'/images/doubleTap/hint.png'} alt='error' className='doubleTap' />}
         </div>
     );
 };

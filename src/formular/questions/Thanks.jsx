@@ -18,15 +18,13 @@ const ThanksAction = ({ data }) => {
         navigate(path);
     }
     const submit = async () => {
-        console.log(data);
         const response = await axios(
-            'https://cute-tan-oyster-belt.cyclic.app/save',
+            'https://formular-api.cyclic.app/save',
             {
                 method: 'post',
                 data: data,
             },
         );
-        console.log(response);
         routeChange();
     }
     return (

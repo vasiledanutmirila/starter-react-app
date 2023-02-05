@@ -68,7 +68,6 @@ const ScrollEmulationContent = ({ setScrollDisabled }) => {
                 if ( !didAction ) {
                     setTimeUntilAction(Math.floor((Date.now() - start) / 1000));
                     if ( hintTime ) {
-                        console.log(hintTime);
                         setTimeAfterHint(Math.floor((Date.now() - hintTime) / 1000));
                     }
                 }
@@ -107,12 +106,10 @@ const ScrollEmulationContent = ({ setScrollDisabled }) => {
     startTime = start;
 
     return (
-        <div className="content flex flex-column items-center justify-around pl4 pr4 relative" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd} onTouchMove={onTouchMove} >
-            <div className='imageContainer scrollImageContainer h-100 pt3 pb3 relative'>
-                {index < images.length && <img className='h-100' src={images[index]} alt='error' />}
-                {index >= images.length && <div className='h-100 flex items-center'>Done!</div>}
-                {hint && !didAction && <img src={'/images/scroll/scroll-hint.png'} alt='error' className='swipe' />}
-            </div>
+        <div className='imageContainer scrollImageContainer h-75 pt3 pb3 relative' onTouchStart={onTouchStart} onTouchEnd={onTouchEnd} onTouchMove={onTouchMove}>
+            {index < images.length && <img className='h-100' src={images[index]} alt='error' />}
+            {index >= images.length && <div className='h-100 flex items-center'>Done!</div>}
+            {hint && !didAction && <img src={'/images/scroll/scroll-hint.png'} alt='error' className='swipe' />}
         </div>
     );
 };
@@ -121,7 +118,6 @@ const ScrollEmulationAction = ({ count, setCount, setScrollData, disabled }) => 
     const onClick = () => {
         setCount(count + 1);
         setScrollData({...scrollData, totalTime: Math.floor((Date.now() - startTime) / 1000)});
-        console.log({...scrollData, totalTime: Math.floor((Date.now() - startTime) / 1000)});
     };
     return (
         <div className="actions mb5 flex flex-column items-center">

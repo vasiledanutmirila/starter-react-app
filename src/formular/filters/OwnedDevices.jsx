@@ -8,7 +8,7 @@ const OwnedDevices = ({ setResults }) => {
 
     const ownedDevicesOnClick = async () => {
         const response = await axios(
-            'https://cute-tan-oyster-belt.cyclic.app/find/ownedDevices',
+            'https://formular-api.cyclic.app/find/ownedDevices',
             {
                 method: 'get',
                 params: { ownedDevices: JSON.stringify(ownedDevices) },
@@ -22,7 +22,7 @@ const OwnedDevices = ({ setResults }) => {
     };
 
     return (
-        <div className='flex flex-column'>
+        <div className='filter flex flex-column'>
             <span>Devices</span>
             <Checkbox
                 label='smartphone'

@@ -8,7 +8,7 @@ const Gender = ({ setResults }) => {
 
     const genderOnClick = async () => {
         const response = await axios(
-            'https://cute-tan-oyster-belt.cyclic.app/find/gender',
+            'https://formular-api.cyclic.app/find/gender',
             {
                 method: 'get',
                 params: { gender: JSON.stringify(gender) },
@@ -22,7 +22,7 @@ const Gender = ({ setResults }) => {
     };
 
     return (
-        <div className='flex flex-column'>
+        <div className='filter flex flex-column'>
             <span>Gender</span>
             <Checkbox
                 label='male'

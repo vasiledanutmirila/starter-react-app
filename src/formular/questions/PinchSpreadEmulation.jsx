@@ -103,21 +103,19 @@ const PinchSpreadEmulationContent = ({ setPinchSpreadDisabled }) => {
       }
 
     return (
-        <div className="content flex flex-column items-center justify-around pl4 pr4 relative">
-            <div
-                className='imageContainer h-100 pt3 pb3 relative'
-                onPointerDown={pointerDownHandler}
-                onPointerMove={pointerMoveHandler}
-                onPointerUp={pointerUpHandler}
-                onPointerCancel={pointerUpHandler}
-                onPointerOut={pointerUpHandler}
-                onPointerLeave={pointerUpHandler}
-                style={{ scale: scale }}
-            >
-                <img src={images[index]} alt="error" className='h-100' />
-                {found && scale ==='2' && <div className='found'>Found!</div>}
-                {hint && !didAction && <img src={'/images/pinch&spread/hint.png'} alt='error' className='pinch' />}
-            </div>
+        <div
+            className='imageContainer h-75 pt3 pb3 relative'
+            onPointerDown={pointerDownHandler}
+            onPointerMove={pointerMoveHandler}
+            onPointerUp={pointerUpHandler}
+            onPointerCancel={pointerUpHandler}
+            onPointerOut={pointerUpHandler}
+            onPointerLeave={pointerUpHandler}
+            style={{ scale: scale }}
+        >
+            <img src={images[index]} alt="error" className='h-100' />
+            {found && scale ==='2' && <div className='found'>Found!</div>}
+            {hint && !didAction && <img src={'/images/pinch&spread/hint.png'} alt='error' className='pinch' />}
         </div>
     );
 };

@@ -31,7 +31,7 @@ const WorkIndustry = ({ setResults }) => {
 
     const workIndustryOnClick = async () => {
         const response = await axios(
-            'https://cute-tan-oyster-belt.cyclic.app/find/workIndustry',
+            'https://formular-api.cyclic.app/find/workIndustry',
             {
                 method: 'get',
                 params: { workIndustry: JSON.stringify(workIndustry) },
@@ -45,7 +45,7 @@ const WorkIndustry = ({ setResults }) => {
     };
 
     return (
-        <div className='flex flex-column'>
+        <div className='filter flex flex-column'>
             <span>Working area</span>
             <Checkbox
                 label='art'

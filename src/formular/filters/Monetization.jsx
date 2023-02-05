@@ -11,7 +11,7 @@ const Monetization = ({ setResults }) => {
 
     const monetizationOnClick = async () => {
         const response = await axios(
-            'https://cute-tan-oyster-belt.cyclic.app/find/monetization',
+            'https://formular-api.cyclic.app/find/monetization',
             {
                 method: 'get',
                 params: { monetization: JSON.stringify(monetization) },
@@ -25,7 +25,7 @@ const Monetization = ({ setResults }) => {
     };
 
     return (
-        <div className='flex flex-column'>
+        <div className='filter flex flex-column'>
             <span>Monetization</span>
             <Checkbox
                 label='yes'

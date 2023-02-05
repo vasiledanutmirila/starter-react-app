@@ -11,173 +11,281 @@ import MonthlyAmount from './filters/MonthlyAmount';
 import Monetization from './filters/Monetization';
 import MonetizationLevel from './filters/MonetizationLevel';
 import WorkIndustry from './filters/WorkIndustry';
+import DonutChart from 'react-donut-chart';
 
 const Dashboard = () => {
     const [ results, setResults ] = useState();
-    const [ withoutHint, setWithoutHint ] = useState();
-    const [ withHint, setWithHint ] = useState();
+    const [ swipeWithoutHint, setSwipeWithoutHint ] = useState();
+    const [ swipeWithHint, setSwipeWithHint ] = useState();
+    const [ scrollWithoutHint, setScrollWithoutHint ] = useState();
+    const [ scrollWithHint, setScrollWithHint ] = useState();
+    const [ doubleTapWithoutHint, setDoubleTapWithoutHint ] = useState();
+    const [ doubleTapWithHint, setDoubleTapWithHint ] = useState();
+    const [ pinchSpreadWithoutHint, setPinchSpreadWithoutHint ] = useState();
+    const [ pinchSpreadWithHint, setPinchSpreadWithHint ] = useState();
+    // const [ scrollPrefferenceNumber, setScrollPrefferenceNumber ] = useState();
+    // const [ swipePrefferenceNumber, setSwipePrefferenceNumber ] = useState();
+    // const [ scrollExperienceNumber , setScrollExperienceNumber ] = useState();
+    // const [ swipeExperienceNumber , setSwipeExperienceNumber ] = useState();
+    // const [ doubleTapPrefferenceNumber, setDoubleTapPrefferenceNumber ] = useState();
+    // const [ pinchSpreadPrefferenceNumber, setPinchSpreadPrefferenceNumber ] = useState();
+    // const [ doubleTapExperienceNumber , setDoubleTapExperienceNumber ] = useState();
+    // const [ pinchSpreadExperienceNumber , setPinchSpreadExperienceNumber ] = useState();
 
     useEffect(() => {
-        setWithoutHint(results?.filter((result) => result.swipeData.timeAfterHint === -1));
-        setWithHint(results?.filter((result) => result.swipeData.timeAfterHint !== -1));
+        setSwipeWithoutHint(results?.filter((result) => result.swipeData.timeAfterHint === -1));
+        setSwipeWithHint(results?.filter((result) => result.swipeData.timeAfterHint !== -1));
+        setScrollWithoutHint(results?.filter((result) => result.scrollData.timeAfterHint === -1));
+        setScrollWithHint(results?.filter((result) => result.scrollData.timeAfterHint !== -1));
+        setDoubleTapWithoutHint(results?.filter((result) => result.doubleTapData.timeAfterHint === -1));
+        setDoubleTapWithHint(results?.filter((result) => result.doubleTapData.timeAfterHint !== -1));
+        setPinchSpreadWithoutHint(results?.filter((result) => result.pinchSpreadData.timeAfterHint === -1));
+        setPinchSpreadWithHint(results?.filter((result) => result.pinchSpreadData.timeAfterHint !== -1));
+        // setScrollPrefferenceNumber(swipeWithHint?.concat(swipeWithoutHint, scrollWithHint, scrollWithoutHint).reduce(
+        //     (accumulator, result) => {
+        //         if ( result.swipeOrScroll === 'scroll') {
+        //             return accumulator + 1;
+        //         }
+        //         return accumulator;
+        // }, 0));
+        // setSwipePrefferenceNumber(swipeWithHint?.concat(swipeWithoutHint, scrollWithHint, scrollWithoutHint).reduce(
+        //     (accumulator, result) => {
+        //         if ( result.swipeOrScroll === 'swipe') {
+        //             return accumulator + 1;
+        //         }
+        //         return accumulator;
+        // }, 0));
+        // setScrollExperienceNumber(swipeWithHint?.concat(swipeWithoutHint, scrollWithHint, scrollWithoutHint).reduce(
+        //     (accumulator, result) => {
+        //         if ( result.likeSwipeOrScroll === 'scroll') {
+        //             return accumulator + 1;
+        //         }
+        //         return accumulator;
+        // }, 0));
+        // setSwipeExperienceNumber(swipeWithHint?.concat(swipeWithoutHint, scrollWithHint, scrollWithoutHint).reduce(
+        //     (accumulator, result) => {
+        //         if ( result.likeSwipeOrScroll === 'swipe') {
+        //             return accumulator + 1;
+        //         }
+        //         return accumulator;
+        // }, 0));
+
+        // setDoubleTapPrefferenceNumber(doubleTapWithHint?.concat(doubleTapWithoutHint, pinchSpreadWithHint, pinchSpreadWithoutHint).reduce(
+        //     (accumulator, result) => {
+        //         if ( result.zoom === 'doubleTap') {
+        //             return accumulator + 1;
+        //         }
+        //         return accumulator;
+        // }, 0));
+        // setPinchSpreadPrefferenceNumber(doubleTapWithHint?.concat(doubleTapWithoutHint, pinchSpreadWithHint, pinchSpreadWithoutHint).reduce(
+        //     (accumulator, result) => {
+        //         if ( result.swipeOrScroll === 'pinchSpread') {
+        //             return accumulator + 1;
+        //         }
+        //         return accumulator;
+        // }, 0));
+        // setDoubleTapExperienceNumber(doubleTapWithHint?.concat(doubleTapWithoutHint, pinchSpreadWithHint, pinchSpreadWithoutHint).reduce(
+        //     (accumulator, result) => {
+        //         if ( result.likeDoubleTapOrPinchSpread === 'doubleTap') {
+        //             return accumulator + 1;
+        //         }
+        //         return accumulator;
+        // }, 0));
+        // setPinchSpreadExperienceNumber(doubleTapWithHint?.concat(doubleTapWithoutHint, pinchSpreadWithHint, pinchSpreadWithoutHint).reduce(
+        //     (accumulator, result) => {
+        //         if ( result.likeDoubleTapOrPinchSpread === 'pinchSpread') {
+        //             return accumulator + 1;
+        //         }
+        //         return accumulator;
+        // }, 0));
     }, [results]);
     
     return (
         <div className="dashboard w-100 h-100">
             <div className="title w-100 pt2 pb2">Dashboard</div>
-            <div className='flex justify-between h-100'>
-                <div className="filterContainer h-100 w-50 overflow-y-scroll">
-                    <ul className='h-100'>
-                        <li className='age'>
+            <div className='dashboardContent flex justify-between'>
+                <div className="filterContainer h-100 w-30 overflow-y-scroll">
+                    <div className='filterList h-100 flex flex-column pl4 pr4'>
+                        <div className='age'>
                             <Age setResults={setResults} />
-                        </li>
-                        <li className='gender'>
+                        </div>
+                        <div className='gender'>
                             <Gender setResults={setResults} />
-                        </li>
-                        <li className='education'>
+                        </div>
+                        <div className='education'>
                             <Education setResults={setResults} />
-                        </li>
-                        <li className='usingSmartDevices'>
+                        </div>
+                        <div className='usingSmartDevices'>
                             <UsingSmartDevices setResults={setResults} />
-                        </li>
-                        <li className='activity'>
+                        </div>
+                        <div className='activity'>
                             <Activity setResults={setResults} />
-                        </li>
-                        <li className='workIndustry'>
+                        </div>
+                        <div className='workIndustry'>
                             <WorkIndustry setResults={setResults} />
-                        </li>
-                        <li className='ownedDevices'>
+                        </div>
+                        <div className='ownedDevices'>
                             <OwnedDevices setResults={setResults} />
-                        </li>
-                        <li className='reasons'>
+                        </div>
+                        <div className='reasons'>
                             <Reasons setResults={setResults} />
-                        </li>
-                        <li className='monthlyAmount'>
+                        </div>
+                        <div className='monthlyAmount'>
                             <MonthlyAmount setResults={setResults} />
-                        </li>
-                        <li className='monetization'>
+                        </div>
+                        <div className='monetization'>
                             <Monetization setResults={setResults} />
-                        </li>
-                        <li className='monetizationLevel'>
+                        </div>
+                        <div className='monetizationLevel'>
                             <MonetizationLevel setResults={setResults} />
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
                 </div>
-                <div className='resultsContainer h-100 w-50 overflow-y-scroll'>
-                    <p>Total: {results?.length ?? ''}</p>
-                    <p>Swipe:</p>
-                    <ul>
-                        <li>
-                            without hint: {withoutHint?.length}{withoutHint && `(${(withoutHint.length / results?.length) * 100}%)`}
+                {(swipeWithHint || swipeWithoutHint) && <div className='resultsContainer h-100 w-70 overflow-y-scroll pa4'>
+                    <p className='resultHeader'>Total: {results?.length ?? ''}</p>
+                    <p className='resultHeader'>Swipe:</p>
+                    <div>
+                        <div>
+                            <DonutChart
+                                data={[
+                                    { label: 'without hint', value: Number(((swipeWithoutHint?.length / results?.length) * 100).toFixed(2)) },
+                                    { label: 'with hint', value: Number(((swipeWithHint?.length / results?.length) * 100).toFixed(2)) }
+                                ]}
+                            />
+                            <p>without hint:</p>
                             <ul>
                                 <li>
-                                    total time: {(withoutHint?.reduce((accumulator, result) => { return accumulator + result.swipeData.totalTime }, 0) / results?.length)}
+                                    total time: {(swipeWithoutHint?.reduce((accumulator, result) => { return accumulator + result.swipeData.totalTime }, 0) / results?.length).toFixed(2) || ''}
                                 </li>
                                 <li>
-                                    time until action: {(withoutHint?.reduce((accumulator, result) => { return accumulator + result.swipeData.timeUntilAction }, 0) / results?.length)}
+                                    time until action: {(swipeWithoutHint?.reduce((accumulator, result) => { return accumulator + result.swipeData.timeUntilAction }, 0) / results?.length).toFixed(2) || ''}
                                 </li>
                             </ul>
-                        </li>
-                        <li>
-                            with hint: {withHint?.length}{withHint && `(${(withHint.length / results?.length) * 100}%)`}
+                        </div>
+                        <div>
+                            with hint:
                             <ul>
                                 <li>
-                                    total time: {(withHint?.reduce((accumulator, result) => { return accumulator + result.swipeData.totalTime }, 0) / results?.length)}
+                                    total time: {(swipeWithHint?.reduce((accumulator, result) => { return accumulator + result.swipeData.totalTime }, 0) / results?.length).toFixed(2) || ''}
                                 </li>
                                 <li>
-                                    time until action: {(withHint?.reduce((accumulator, result) => { return accumulator + result.swipeData.timeUntilAction }, 0) / results?.length)}
+                                    time until action: {(swipeWithHint?.reduce((accumulator, result) => { return accumulator + result.swipeData.timeUntilAction }, 0) / results?.length).toFixed(2) || ''}
                                 </li>
                                 <li>
-                                    time until action after hint: {(withHint?.reduce((accumulator, result) => { return accumulator + result.swipeData.timeAfterHint }, 0) / results?.length)}
+                                    time until action after hint: {(swipeWithHint?.reduce((accumulator, result) => { return accumulator + result.swipeData.timeAfterHint }, 0) / results?.length).toFixed(2) || ''}
                                 </li>
                             </ul>
-                        </li>
-                    </ul>
-                    <p>Scroll:</p>
-                    <ul>
-                        <li>
-                            without hint: {withoutHint?.length}{withoutHint && `(${(withoutHint.length / results?.length) * 100}%)`}
+                        </div>
+                    </div>
+                    <p className='resultHeader'>Scroll:</p>
+                    <div>
+                        <div>
+                            <DonutChart
+                                data={[
+                                    { label: 'without hint', value: Number(((scrollWithoutHint?.length / results?.length) * 100).toFixed(2)) },
+                                    { label: 'with hint', value: Number(((scrollWithHint?.length / results?.length) * 100).toFixed(2)) }
+                                ]}
+                            />
+                            <p>without hint:</p>
                             <ul>
                                 <li>
-                                    total time: {(withoutHint?.reduce((accumulator, result) => { return accumulator + result.scrollData.totalTime }, 0) / results?.length)}
+                                    total time: {(scrollWithoutHint?.reduce((accumulator, result) => { return accumulator + result.scrollData.totalTime }, 0) / results?.length).toFixed(2) || ''}
                                 </li>
                                 <li>
-                                    time until action: {(withoutHint?.reduce((accumulator, result) => { return accumulator + result.scrollData.timeUntilAction }, 0) / results?.length)}
+                                    time until action: {(scrollWithoutHint?.reduce((accumulator, result) => { return accumulator + result.scrollData.timeUntilAction }, 0) / results?.length).toFixed(2) || ''}
                                 </li>
                             </ul>
-                        </li>
-                        <li>
-                            with hint: {withHint?.length}{withHint && `(${(withHint.length / results?.length) * 100}%)`}
+                        </div>
+                        <div>
+                            with hint:
                             <ul>
                                 <li>
-                                    total time: {(withHint?.reduce((accumulator, result) => { return accumulator + result.scrollData.totalTime }, 0) / results?.length)}
+                                    total time: {(scrollWithHint?.reduce((accumulator, result) => { return accumulator + result.scrollData.totalTime }, 0) / results?.length).toFixed(2) || ''}
                                 </li>
                                 <li>
-                                    time until action: {(withHint?.reduce((accumulator, result) => { return accumulator + result.scrollData.timeUntilAction }, 0) / results?.length)}
+                                    time until action: {(scrollWithHint?.reduce((accumulator, result) => { return accumulator + result.scrollData.timeUntilAction }, 0) / results?.length).toFixed(2) || ''}
                                 </li>
                                 <li>
-                                    time until action after hint: {(withHint?.reduce((accumulator, result) => { return accumulator + result.scrollData.timeAfterHint }, 0) / results?.length)}
+                                    time until action after hint: {(scrollWithHint?.reduce((accumulator, result) => { return accumulator + result.scrollData.timeAfterHint }, 0) / results?.length).toFixed(2) || ''}
                                 </li>
                             </ul>
-                        </li>
-                    </ul>
-                    <p>Double tap:</p>
-                    <ul>
-                        <li>
-                            without hint: {withoutHint?.length}{withoutHint && `(${(withoutHint.length / results?.length) * 100}%)`}
+                        </div>
+                    </div>
+                    <p className='resultHeader'>Double tap:</p>
+                    <div>
+                        <div>
+                            <DonutChart
+                                data={[
+                                    { label: 'without hint', value: Number(((doubleTapWithoutHint?.length / results?.length) * 100).toFixed(2)) },
+                                    { label: 'with hint', value: Number(((doubleTapWithHint?.length / results?.length) * 100).toFixed(2)) }
+                                ]}
+                            />
+                            <p>without hint:</p>
                             <ul>
                                 <li>
-                                    total time: {(withoutHint?.reduce((accumulator, result) => { return accumulator + result.doubleTapData.totalTime }, 0) / results?.length)}
+                                    total time: {(doubleTapWithoutHint?.reduce((accumulator, result) => { return accumulator + result.doubleTapData.totalTime }, 0) / results?.length).toFixed(2) || ''}
                                 </li>
                                 <li>
-                                    time until action: {(withoutHint?.reduce((accumulator, result) => { return accumulator + result.doubleTapData.timeUntilAction }, 0) / results?.length)}
+                                    time until action: {(doubleTapWithoutHint?.reduce((accumulator, result) => { return accumulator + result.doubleTapData.timeUntilAction }, 0) / results?.length).toFixed(2) || ''}
                                 </li>
                             </ul>
-                        </li>
-                        <li>
-                            with hint: {withHint?.length}{withHint && `(${(withHint.length / results?.length) * 100}%)`}
+                        </div>
+                        <div>
+                            with hint:
                             <ul>
                                 <li>
-                                    total time: {(withHint?.reduce((accumulator, result) => { return accumulator + result.doubleTapData.totalTime }, 0) / results?.length)}
+                                    total time: {(doubleTapWithHint?.reduce((accumulator, result) => { return accumulator + result.doubleTapData.totalTime }, 0) / results?.length).toFixed(2) || ''}
                                 </li>
                                 <li>
-                                    time until action: {(withHint?.reduce((accumulator, result) => { return accumulator + result.doubleTapData.timeUntilAction }, 0) / results?.length)}
+                                    time until action: {(doubleTapWithHint?.reduce((accumulator, result) => { return accumulator + result.doubleTapData.timeUntilAction }, 0) / results?.length).toFixed(2) || ''}
                                 </li>
                                 <li>
-                                    time until action after hint: {(withHint?.reduce((accumulator, result) => { return accumulator + result.doubleTapData.timeAfterHint }, 0) / results?.length)}
+                                    time until action after hint: {(doubleTapWithHint?.reduce((accumulator, result) => { return accumulator + result.doubleTapData.timeAfterHint }, 0) / results?.length).toFixed(2) || ''}
                                 </li>
                             </ul>
-                        </li>
-                    </ul>
-                    <p>Pinch & spread:</p>
-                    <ul>
-                        <li>
-                            without hint: {withoutHint?.length}{withoutHint && `(${(withoutHint.length / results?.length) * 100}%)`}
+                        </div>
+                    </div>
+                    <p className='resultHeader'>Pinch & spread:</p>
+                    <div>
+                        <div>
+                            <DonutChart
+                                data={[
+                                    { label: 'without hint', value: Number(((pinchSpreadWithoutHint?.length / results?.length) * 100).toFixed(2)) },
+                                    { label: 'with hint', value: Number(((pinchSpreadWithHint?.length / results?.length) * 100).toFixed(2)) }
+                                ]}
+                            />
+                            <p>without hint:</p>
                             <ul>
                                 <li>
-                                    total time: {(withoutHint?.reduce((accumulator, result) => { return accumulator + result.pinchSpreadData.totalTime }, 0) / results?.length)}
+                                    total time: {(doubleTapWithoutHint?.reduce((accumulator, result) => { return accumulator + result.pinchSpreadData.totalTime }, 0) / results?.length).toFixed(2) || ''}
                                 </li>
                                 <li>
-                                    time until action: {(withoutHint?.reduce((accumulator, result) => { return accumulator + result.pinchSpreadData.timeUntilAction }, 0) / results?.length)}
+                                    time until action: {(doubleTapWithoutHint?.reduce((accumulator, result) => { return accumulator + result.pinchSpreadData.timeUntilAction }, 0) / results?.length).toFixed(2) || ''}
                                 </li>
                             </ul>
-                        </li>
-                        <li>
-                            with hint: {withHint?.length}{withHint && `(${(withHint.length / results?.length) * 100}%)`}
+                        </div>
+                        <div>
+                            with hint:
                             <ul>
                                 <li>
-                                    total time: {(withHint?.reduce((accumulator, result) => { return accumulator + result.pinchSpreadData.totalTime }, 0) / results?.length)}
+                                    total time: {(doubleTapWithHint?.reduce((accumulator, result) => { return accumulator + result.pinchSpreadData.totalTime }, 0) / results?.length).toFixed(2) || ''}
                                 </li>
                                 <li>
-                                    time until action: {(withHint?.reduce((accumulator, result) => { return accumulator + result.pinchSpreadData.timeUntilAction }, 0) / results?.length)}
+                                    time until action: {(doubleTapWithHint?.reduce((accumulator, result) => { return accumulator + result.pinchSpreadData.timeUntilAction }, 0) / results?.length).toFixed(2) || ''}
                                 </li>
                                 <li>
-                                    time until action after hint: {(withHint?.reduce((accumulator, result) => { return accumulator + result.pinchSpreadData.timeAfterHint }, 0) / results?.length)}
+                                    time until action after hint: {(doubleTapWithHint?.reduce((accumulator, result) => { return accumulator + result.pinchSpreadData.timeAfterHint }, 0) / results?.length).toFixed(2) || ''}
                                 </li>
                             </ul>
-                        </li>
-                    </ul>
-                </div>
+                        </div>
+                    </div>
+                    <div className='pt6'>
+                        <p>Preference between swipe and scroll: {results.filter((result) =>  result.swipeOrScroll === 'scroll' ).length < results.filter((result) =>  result.swipeOrScroll === 'swipe' ).length ? 'swipe' : 'scroll'}</p>
+                        <p>Better experience between swipe and scroll: {results.filter((result) =>  result.likeSwipeOrScroll === 'scroll' ).length < results.filter((result) =>  result.likeSwipeOrScroll === 'swipe' ).length ? 'swipe' : 'scroll'}</p>
+                        <p>Preference between double tap and pinch & spread: {results.filter((result) =>  result.zoom === 'doubleTap' ).length < results.filter((result) =>  result.zoom === 'pinchSpread' ).length ? 'pinch & spread' : 'double tap'}</p>
+                        <p>Better experience between tap and pinch & spread: {results.filter((result) =>  result.likeDoubleTapOrPinchSpread === 'doubleTap' ).length < results.filter((result) =>  result.likeDoubleTapOrPinchSpread === 'pinchSpread' ).length ? 'pinch & spread' : 'double tap'}</p>
+                    </div>
+                </div>}
             </div>
         </div>
     );
