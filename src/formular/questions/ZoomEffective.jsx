@@ -18,15 +18,16 @@ const ZoomEffectiveContent = ({ errorMessage }) => {
     return (
     <div className="content flex flex-column items-center justify-around pl4 pr4">
         <div className="question">Is this way of zooming effective? 1-not really, 5-really liked it</div>
-        <div className="flex flex-column w-50">
+        <div className="flex flex-column w-25">
             <Dropdown
+                className="scale2"
                 placeholder='zoom'
                 fluid
                 selection
                 options={options}
                 onChange={onChange}
             />
-            <span className="error mt5">{errorMessage}</span>
+            <span className="error mt5 scale2">{errorMessage}</span>
         </div>
     </div>
     );
@@ -45,7 +46,7 @@ const ZoomEffectiveAction = ({ count, setCount, setZoomEffective, setErrorMessag
     };
     return (
         <div className="actions mb5 flex flex-column items-center">
-            <Button content='Next' onClick={onClick} primary/>
+            <Button content='Next' onClick={onClick} primary size="massive" />
         </div>
     );
 };

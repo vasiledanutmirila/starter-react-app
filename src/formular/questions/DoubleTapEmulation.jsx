@@ -80,7 +80,7 @@ const DoubleTapEmulationContent = ({ setDoubleTapDisabled }) => {
 
     return (
         <div
-            className='imageContainer h-75 pt3 pb3 relative'
+            className='imageContainer pt3 pb3 relative'
             onTouchStart={tapHandler}
             style={{ scale: scale }}
         >
@@ -97,8 +97,8 @@ const DoubleTapEmulationAction = ({ count, setCount, setDoubleTapData, disabled 
         setDoubleTapData({...doubleTapData, totalTime: Math.floor((Date.now() - startTime) / 1000)});
     };
     return (
-        <div className="actions mb5 flex flex-column items-center">
-            <Button content='Next' onClick={onClick} primary disabled={disabled} />
+        <div className="actions mb3 flex flex-column items-center">
+            <Button content='Next' onClick={onClick} primary disabled={disabled} size='massive' />
         </div>
     );
 };

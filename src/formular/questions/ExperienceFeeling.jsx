@@ -14,6 +14,7 @@ const ExperienceFeelingContent = () => {
     <div className="content flex flex-column items-center justify-around pl4 pr4">
         <div className="question">How did this experience make you feel?</div>
         <Radio
+            className="scale2"
             label='interested'
             name='radioGroup'
             value='interested'
@@ -23,6 +24,7 @@ const ExperienceFeelingContent = () => {
             }}
         />
         <Radio
+            className="scale2"
             label='happy'
             name='radioGroup'
             value='happy'
@@ -32,6 +34,7 @@ const ExperienceFeelingContent = () => {
             }}
         />
         <Radio
+            className="scale2"
             label='intrigued'
             name='radioGroup'
             value='intrigued'
@@ -41,6 +44,7 @@ const ExperienceFeelingContent = () => {
             }}
         />
         <Radio
+            className="scale2"
             label='frustrated'
             name='radioGroup'
             value='frustrated'
@@ -50,6 +54,7 @@ const ExperienceFeelingContent = () => {
             }}
         />
         <Radio
+            className="scale2"
             label='enjoyed'
             name='radioGroup'
             value='enjoyed'
@@ -70,7 +75,7 @@ const ExperienceFeelingAction = ({ count, setCount, setExperienceFeeling }) => {
     };
     return (
         <div className="actions mb5 flex flex-column items-center">
-            <Button content='Next' onClick={onClick} primary/>
+            <Button content='Next' onClick={onClick} primary size="massive" />
         </div>
     );
 };

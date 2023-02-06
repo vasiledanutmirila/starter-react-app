@@ -30,7 +30,7 @@ import { EasierDoubleTapOrPinchSpreadAction, EasierDoubleTapOrPinchSpreadContent
 import { ThanksAction, ThanksContent } from "./questions/Thanks";
 
 const FormContainer = () => {
-    const [ count, setCount ] = useState(1);
+    const [ count, setCount ] = useState(13);
     const [ age, setAge ] = useState();
     const [ gender, setGender ] = useState();
     const [ education, setEducation ] = useState();
@@ -417,7 +417,7 @@ const FormContainer = () => {
 
     return  (
         <div className="formContainer flex flex-column justify-between items-center">
-            <div className="header mt5 flex flex-column items-center justify-center">Question #{count}</div>
+            <div className={`header ${[13, 17, 23, 27].includes(count) ? 'mt1' : 'mt5'} flex flex-column items-center justify-center`}>Question #{count}</div>
             {renderContent(count)}
             {renderAction(count)}
         </div>

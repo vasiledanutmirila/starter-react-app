@@ -93,7 +93,7 @@ const SwipeEmulationContent = ({ setSwipeDisabled }) => {
                 }
                 setDidAction(true);
                 setLike(true);
-                sleep(1000).then(() => {
+                sleep(300).then(() => {
                     setIndex(index + 1);
                     setLike(false);
                 });
@@ -107,7 +107,7 @@ const SwipeEmulationContent = ({ setSwipeDisabled }) => {
                 }
                 setDidAction(true);
                 setDislike(true);
-                sleep(1000).then(() => {
+                sleep(300).then(() => {
                     setIndex(index + 1);
                     setDislike(false);
                 });
@@ -115,7 +115,7 @@ const SwipeEmulationContent = ({ setSwipeDisabled }) => {
         }
     }
 
-    if ( index === images.length ) {
+    if ( index === images.length / 2 ) {
         setSwipeDisabled(false);
     } 
     const data = {
@@ -126,7 +126,7 @@ const SwipeEmulationContent = ({ setSwipeDisabled }) => {
     startTime = start;
 
     return (
-        <div className='imageContainer h-75 pt3 pb3 relative' onTouchStart={onTouchStart} onTouchEnd={onTouchEnd} onTouchMove={onTouchMove}>
+        <div className='imageContainer pt3 pb3 relative' onTouchStart={onTouchStart} onTouchEnd={onTouchEnd} onTouchMove={onTouchMove}>
             {index < images.length && <img className='h-100' src={images[index]} alt='error' />}
             {index >= images.length && <div className='h-100 flex items-center'>Done!</div>}
             {index < images.length && <Button circular icon='close' className={`${index >= ipadImagesNumber ? 'ipadDislike' : 'dislike'}`} size='mini' color={dislike ? 'red' : 'grey'} />}
@@ -143,8 +143,8 @@ const SwipeEmulationAction = ({ count, setCount, setSwipeData, disabled }) => {
         setSwipeData({...swipeData, totalTime: Math.floor((Date.now() - startTime) / 1000)});
     };
     return (
-        <div className="actions mb5 flex flex-column items-center">
-            <Button content='Next' onClick={onClick} primary disabled={disabled} />
+        <div className="actions mb3 flex flex-column items-center">
+            <Button className='nextButton' content='Next' onClick={onClick} primary disabled={disabled} size='massive'/>
         </div>
     );
 };

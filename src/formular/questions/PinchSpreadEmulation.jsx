@@ -14,7 +14,7 @@ const PinchSpreadEmulationContent = ({ setPinchSpreadDisabled }) => {
     const [ didAction, setDidAction ] = useState(false);
     const [ hintTime, setHintTime ] = useState();
     const [ timeAfterHint, setTimeAfterHint ] = useState();
-    const [ scale, setScale ] = useState('1');
+    const [ scale, setScale ] = useState('');
     const [ found, setFound ] = useState(false);
 
     const showHint = () => {
@@ -104,7 +104,7 @@ const PinchSpreadEmulationContent = ({ setPinchSpreadDisabled }) => {
 
     return (
         <div
-            className='imageContainer h-75 pt3 pb3 relative'
+            className='imageContainer pt3 pb3 relative'
             onPointerDown={pointerDownHandler}
             onPointerMove={pointerMoveHandler}
             onPointerUp={pointerUpHandler}
@@ -126,8 +126,8 @@ const PinchSpreadEmulationAction = ({ count, setCount, setPinchSpreadData, disab
         setPinchSpreadData({...pinchSpreadData, totalTime: Math.floor((Date.now() - startTime) / 1000)});
     };
     return (
-        <div className="actions mb5 flex flex-column items-center">
-            <Button content='Next' onClick={onClick} primary disabled={disabled} />
+        <div className="actions mb3 flex flex-column items-center">
+            <Button content='Next' onClick={onClick} primary disabled={disabled} size='massive' />
         </div>
     );
 };

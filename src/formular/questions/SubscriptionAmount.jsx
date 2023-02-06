@@ -14,6 +14,7 @@ const SubscriptionAmountContent = () => {
     <div className="content flex flex-column items-center justify-around pl4 pr4">
         <div className="question">What's the amount of the money that you would pay for a monthly subscription for an app?</div>
         <Radio
+            className="scale2"
             label='0-5 ron'
             name='radioGroup'
             value='0-5'
@@ -23,6 +24,7 @@ const SubscriptionAmountContent = () => {
             }}
         />
         <Radio
+            className="scale2"
             label='1-15 ron'
             name='radioGroup'
             value='1-15'
@@ -32,6 +34,7 @@ const SubscriptionAmountContent = () => {
             }}
         />
         <Radio
+            className="scale2"
             label='16-35 ron'
             name='radioGroup'
             value='16-35'
@@ -41,6 +44,7 @@ const SubscriptionAmountContent = () => {
             }}
         />
         <Radio
+            className="scale2"
             label='35-50 ron'
             name='radioGroup'
             value='35-50'
@@ -50,6 +54,7 @@ const SubscriptionAmountContent = () => {
             }}
         />
         <Radio
+            className="scale2"
             label='over 50 ron'
             name='radioGroup'
             value='50+'
@@ -70,7 +75,7 @@ const SubscriptionAmountAction = ({ count, setCount, setSubscriptionAmount }) =>
     };
     return (
         <div className="actions mb5 flex flex-column items-center">
-            <Button content='Next' onClick={onClick} primary/>
+            <Button content='Next' onClick={onClick} primary size="massive" />
         </div>
     );
 };

@@ -14,6 +14,7 @@ const EducationContent = () => {
     <div className="content flex flex-column items-center justify-around pl4 pr4">
         <div className="question">Last level of education that you finished</div>
         <Radio
+            className="scale2"
             label='Middle school'
             name='radioGroup'
             value='middleSchool'
@@ -23,6 +24,7 @@ const EducationContent = () => {
             }}
         />
         <Radio
+            className="scale2"
             label='High school'
             name='radioGroup'
             value='highSchool'
@@ -32,6 +34,7 @@ const EducationContent = () => {
             }}
         />
         <Radio
+            className="scale2"
             label='University studies'
             name='radioGroup'
             value='universityStudies'
@@ -52,7 +55,7 @@ const EducationAction = ({ count, setCount, setEducation }) => {
     };
     return (
         <div className="actions mb5 flex flex-column items-center">
-            <Button content='Next' onClick={onClick} primary/>
+            <Button content='Next' onClick={onClick} primary size="massive" />
         </div>
     );
 };

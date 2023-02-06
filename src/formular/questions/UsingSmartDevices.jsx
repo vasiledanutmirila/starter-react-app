@@ -29,15 +29,16 @@ const UsingSmartDevicesContent = ({ errorMessage }) => {
     return (
     <div className="content flex flex-column items-center justify-around pl4 pr4">
         <div className="question">For how many years have you been using smart devices?</div>
-        <div className="flex flex-column w-50">
+        <div className="flex flex-column w-25">
             <Dropdown
+                className="scale2"
                 placeholder='Years'
                 fluid
                 selection
                 options={options}
                 onChange={onChange}
             />
-            <span className="error mt5">{errorMessage}</span>
+            <span className="error mt5 scale2">{errorMessage}</span>
         </div>
     </div>
     );
@@ -56,7 +57,7 @@ const UsingSmartDevicesAction = ({ count, setCount, setUsingSmartDevices, setErr
     };
     return (
         <div className="actions mb5 flex flex-column items-center">
-            <Button content='Next' onClick={onClick} primary/>
+            <Button content='Next' onClick={onClick} primary size="massive" />
         </div>
     );
 };

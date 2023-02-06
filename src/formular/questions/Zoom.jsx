@@ -14,6 +14,7 @@ const ZoomContent = () => {
     <div className="content flex flex-column items-center justify-around pl4 pr4">
         <div className="question">Which one do you prefer?</div>
         <Radio
+            className="scale2"
             label='double tap'
             name='radioGroup'
             value='doubleTap'
@@ -23,6 +24,7 @@ const ZoomContent = () => {
             }}
         />
         <Radio
+            className="scale2"
             label='pinch & spread'
             name='radioGroup'
             value='pinch&spread'
@@ -43,7 +45,7 @@ const ZoomAction = ({ count, setCount, setZoom }) => {
     };
     return (
         <div className="actions mb5 flex flex-column items-center">
-            <Button content='Next' onClick={onClick} primary/>
+            <Button content='Next' onClick={onClick} primary size="massive" />
         </div>
     );
 };

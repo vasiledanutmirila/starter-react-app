@@ -14,6 +14,7 @@ const MonthlyAmountContent = () => {
     <div className="content flex flex-column items-center justify-around pl4 pr4">
         <div className="question">Which is the amount of money you get monthly (NET)?</div>
         <Radio
+            className="scale2"
             label='0-500 ron'
             name='radioGroup'
             value='0-500'
@@ -23,6 +24,7 @@ const MonthlyAmountContent = () => {
             }}
         />
         <Radio
+            className="scale2"
             label='501-1700 ron'
             name='radioGroup'
             value='501-1700'
@@ -32,6 +34,7 @@ const MonthlyAmountContent = () => {
             }}
         />
         <Radio
+            className="scale2"
             label='1701-2500 ron'
             name='radioGroup'
             value='1701-2500'
@@ -41,6 +44,7 @@ const MonthlyAmountContent = () => {
             }}
         />
         <Radio
+            className="scale2"
             label='over 2501 ron'
             name='radioGroup'
             value='2501+'
@@ -61,7 +65,7 @@ const MonthlyAmountAction = ({ count, setCount, setMonthlyAmount }) => {
     };
     return (
         <div className="actions mb5 flex flex-column items-center">
-            <Button content='Next' onClick={onClick} primary/>
+            <Button content='Next' onClick={onClick} primary size="massive" />
         </div>
     );
 };

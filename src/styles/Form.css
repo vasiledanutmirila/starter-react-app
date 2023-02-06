@@ -16,7 +16,6 @@
     position: relative;
     width: 70%;
     height: 60%;
-    font-size: x-large;
     border: 3px solid;
     border-radius: 16px;
     background-color: #ffffff;
@@ -41,12 +40,14 @@
     position: absolute;
     top: 85%;
     left: 25%;
+    scale: 2;
 }
 
 .like {
     position: absolute;
     top: 85%;
     right: 25%;
+    scale: 2;
 }
 
 .swipe {
@@ -58,14 +59,16 @@
 
 .ipadLike {
     position: absolute;
-    top: 85%;
+    top: 87%;
     right: 35%;
+    scale: 2;
 }
 
 .ipadDislike {
     position: absolute;
-    top: 85%;
+    top: 87%;
     left: 35%;
+    scale: 2;
 }
 
 .pinch {
@@ -78,7 +81,7 @@
 .found {
     position: absolute;
     height: 20%;
-    bottom: 10%;
+    bottom: 8%;
     left: 43%;
 }
 
@@ -87,4 +90,26 @@
     height: 20%;
     bottom: 10%;
     left: 25%;
+}
+
+.question {
+    font-size: xx-large;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.imageContainer {
+    height: 85%;
+}
+
+.imageContainerIpad {
+    height: 100%;
+}
+
+.scale2 {
+    scale: 2;
+}
+
+.scale18 {
+    scale: 1.8;
 }

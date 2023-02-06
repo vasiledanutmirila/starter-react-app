@@ -14,6 +14,7 @@ const LikeSwipeOrScrollContent = () => {
     <div className="content flex flex-column items-center justify-around pl4 pr4">
         <div className="question">Which one did you like the most?</div>
         <Radio
+            className="scale2"
             label='swipe experience'
             name='radioGroup'
             value='swipe'
@@ -23,6 +24,7 @@ const LikeSwipeOrScrollContent = () => {
             }}
         />
         <Radio
+            className="scale2"
             label='scroll experience'
             name='radioGroup'
             value='scroll'
@@ -43,7 +45,7 @@ const LikeSwipeOrScrollAction = ({ count, setCount, setLikeSwipeOrScroll }) => {
     };
     return (
         <div className="actions mb5 flex flex-column items-center">
-            <Button content='Next' onClick={onClick} primary/>
+            <Button content='Next' onClick={onClick} primary size="massive" />
         </div>
     );
 };

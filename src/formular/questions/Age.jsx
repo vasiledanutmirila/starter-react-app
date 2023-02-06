@@ -12,9 +12,9 @@ const AgeContent = ({ errorMessage }) => {
     return (
     <div className="content flex flex-column items-center justify-around pl4 pr4">
         <div className="question">How old are you?</div>
-        <div className="flex flex-column w-50">
-            <Input className="inputField" type='number' onChange={onChange} />
-            <span className="error mt5">{errorMessage}</span>
+        <div className="flex flex-column items-center">
+            <Input className="inputField scale2 w-50" type='number' onChange={onChange} />
+            <span className="error mt5 scale2">{errorMessage}</span>
         </div>
     </div>
     );
@@ -38,7 +38,7 @@ const AgeAction = ({ count, setCount, setAge, setErrorMessage }) => {
     };
     return (
         <div className="actions mb5 flex flex-column items-center">
-            <Button content='Next' onClick={onClick} primary/>
+            <Button content='Next' onClick={onClick} primary size="massive" />
         </div>
     );
 };

@@ -18,15 +18,16 @@ const RateExperienceContent = ({ errorMessage }) => {
     return (
     <div className="content flex flex-column items-center justify-around pl4 pr4">
         <div className="question">How would you rate the experience? 1-not satisfying, 5-really satisfying</div>
-        <div className="flex flex-column w-50">
+        <div className="flex flex-column">
             <Dropdown
+                className="scale2"
                 placeholder='rate experience'
                 fluid
                 selection
                 options={options}
                 onChange={onChange}
             />
-            <span className="error mt5">{errorMessage}</span>
+            <span className="error mt5 scale2">{errorMessage}</span>
         </div>
     </div>
     );
@@ -45,7 +46,7 @@ const RateExperienceAction = ({ count, setCount, setRateExperience, setErrorMess
     };
     return (
         <div className="actions mb5 flex flex-column items-center">
-            <Button content='Next' onClick={onClick} primary/>
+            <Button content='Next' onClick={onClick} primary size="massive" />
         </div>
     );
 };

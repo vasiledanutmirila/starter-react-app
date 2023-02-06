@@ -18,30 +18,34 @@ const OwnedDevicesContent = ({ errorMessage }) => {
             <div className="question">What smart devices do you own?</div>
             <div className="flex flex-column items-center justify-around h-75 w-50">
                 <Checkbox
+                    className="scale2"
                     label='smartphone'
                     onChange={(e, { checked }) => {
                         onChange(e, { checked }, 'smartphone');
                     }}
                 />
                 <Checkbox
+                    className="scale2"
                     label='tablet'
                     onChange={(e, { checked }) => {
                         onChange(e, { checked }, 'tablet');
                     }}
                 />
                 <Checkbox
+                    className="scale2"
                     label='smartwatch'
                     onChange={(e, { checked }) => {
                         onChange(e, { checked }, 'smartwatch');
                     }}
                 />
                 <Checkbox
+                    className="scale2"
                     label='smartband'
                     onChange={(e, { checked }) => {
                         onChange(e, { checked }, 'smartband');
                     }}
                 />
-                <span className="error mt5">{errorMessage}</span>
+                <span className="error mt5 scale2">{errorMessage}</span>
             </div>
         </div>
         );
@@ -65,7 +69,7 @@ const OwnedDevicesAction = ({ count, setCount, setOwnedDevices, setErrorMessage 
     };
     return (
         <div className="actions mb5 flex flex-column items-center">
-            <Button content='Next' onClick={onClick} primary/>
+            <Button content='Next' onClick={onClick} primary size="massive" />
         </div>
     );
 };

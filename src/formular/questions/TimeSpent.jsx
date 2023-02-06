@@ -35,13 +35,14 @@ const TimeSpentContent = ({ errorMessage }) => {
         <div className="question">How much time do you spend daily on a smartphone/tablet?</div>
         <div className="flex flex-column w-50">
             <Dropdown
+                className="scale2"
                 placeholder='Time spent'
                 fluid
                 selection
                 options={options}
                 onChange={onChange}
             />
-            <span className="error mt5">{errorMessage}</span>
+            <span className="error mt5 scale2">{errorMessage}</span>
         </div>
     </div>
     );
@@ -60,7 +61,7 @@ const TimeSpentAction = ({ count, setCount, setTimeSpent, setErrorMessage }) => 
     };
     return (
         <div className="actions mb5 flex flex-column items-center">
-            <Button content='Next' onClick={onClick} primary/>
+            <Button content='Next' onClick={onClick} primary size="massive"/>
         </div>
     );
 };

@@ -24,10 +24,10 @@ const DeviceMostTimeSpentContent = () => {
     return (
     <div className="content flex flex-column items-center justify-around pl4 pr4">
         <div className="question">Note from 1 to 4 (with 1 the most important and 4 the least important) with which smart device you spend most of your time</div>
-        <div className="w-100 flex justify-between">
-            <div className="w-25">Smartphone:</div>
+        <div className="w-50 flex justify-between scale18">
+            <div>Smartphone:</div>
             <Radio
-                className='ml5'
+                className='ml2'
                 label='1'
                 name='radioGroupSmartphone'
                 value={1}
@@ -37,7 +37,7 @@ const DeviceMostTimeSpentContent = () => {
                 }}
             />
             <Radio
-                className='ml5'
+                className='ml4'
                 label='2'
                 name='radioGroupSmartphone'
                 value={2}
@@ -47,7 +47,7 @@ const DeviceMostTimeSpentContent = () => {
                 }}
             />
             <Radio
-                className='ml5'
+                className='ml4'
                 label='3'
                 name='radioGroupSmartphone'
                 value={3}
@@ -57,7 +57,7 @@ const DeviceMostTimeSpentContent = () => {
                 }}
             />
             <Radio
-                className='ml5'
+                className='ml4'
                 label='4'
                 name='radioGroupSmartphone'
                 value={4}
@@ -67,10 +67,10 @@ const DeviceMostTimeSpentContent = () => {
                 }}
             />
         </div>
-        <div className="w-100 flex justify-between">
-            <div className="w-25">Tablet:</div>
+        <div className="w-50 flex justify-between scale18">
+            <div>Tablet:</div>
             <Radio
-                className='ml5'
+                className='ml2'
                 label='1'
                 name='radioGroupTablet'
                 value={1}
@@ -80,7 +80,7 @@ const DeviceMostTimeSpentContent = () => {
                 }}
             />
             <Radio
-                className='ml5'
+                className='ml4'
                 label='2'
                 name='radioGroupTablet'
                 value={2}
@@ -90,7 +90,7 @@ const DeviceMostTimeSpentContent = () => {
                 }}
             />
             <Radio
-                className='ml5'
+                className='ml4'
                 label='3'
                 name='radioGroupTablet'
                 value={3}
@@ -100,7 +100,7 @@ const DeviceMostTimeSpentContent = () => {
                 }}
             />
             <Radio
-                className='ml5'
+                className='ml4'
                 label='4'
                 name='radioGroupTablet'
                 value={4}
@@ -110,10 +110,10 @@ const DeviceMostTimeSpentContent = () => {
                 }}
             />
         </div>
-        <div className="w-100 flex justify-between">
-            <div className="w-25">Smartwatch:</div>
+        <div className="w-50 flex justify-between scale18">
+            <div>Smartwatch:</div>
             <Radio
-                className='ml5'
+                className='ml2'
                 label='1'
                 name='radioGroupSmartwatch'
                 value={1}
@@ -123,7 +123,7 @@ const DeviceMostTimeSpentContent = () => {
                 }}
             />
             <Radio
-                className='ml5'
+                className='ml4'
                 label='2'
                 name='radioGroupSmartwatch'
                 value={2}
@@ -133,7 +133,7 @@ const DeviceMostTimeSpentContent = () => {
                 }}
             />
             <Radio
-                className='ml5'
+                className='ml4'
                 label='3'
                 name='radioGroupSmartwatch'
                 value={3}
@@ -143,7 +143,7 @@ const DeviceMostTimeSpentContent = () => {
                 }}
             />
             <Radio
-                className='ml5'
+                className='ml4'
                 label='4'
                 name='radioGroupSmartwatch'
                 value={4}
@@ -153,10 +153,10 @@ const DeviceMostTimeSpentContent = () => {
                 }}
             />
         </div>
-        <div className="w-100 flex justify-between">
-            <div className="w-25">Smartband:</div>
+        <div className="w-50 flex justify-between scale18">
+            <div>Smartband:</div>
             <Radio
-                className='ml5'
+                className='ml2'
                 label='1'
                 name='radioGroupSmartband'
                 value={1}
@@ -166,7 +166,7 @@ const DeviceMostTimeSpentContent = () => {
                 }}
             />
             <Radio
-                className='ml5'
+                className='ml4'
                 label='2'
                 name='radioGroupSmartband'
                 value={2}
@@ -176,7 +176,7 @@ const DeviceMostTimeSpentContent = () => {
                 }}
             />
             <Radio
-                className='ml5'
+                className='ml4'
                 label='3'
                 name='radioGroupSmartband'
                 value={3}
@@ -186,7 +186,7 @@ const DeviceMostTimeSpentContent = () => {
                 }}
             />
             <Radio
-                className='ml5'
+                className='ml4'
                 label='4'
                 name='radioGroupSmartband'
                 value={4}
@@ -213,7 +213,7 @@ const DeviceMostTimeSpentAction = ({ count, setCount, setDeviceMostTimeSpent }) 
     };
     return (
         <div className="actions mb5 flex flex-column items-center">
-            <Button content='Next' onClick={onClick} primary/>
+            <Button content='Next' onClick={onClick} primary size="massive" />
         </div>
     );
 };

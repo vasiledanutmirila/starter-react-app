@@ -14,6 +14,7 @@ const GenderContent = () => {
     <div className="content flex flex-column items-center justify-around pl4 pr4">
         <div className="question">With what gender do you identify?</div>
         <Radio
+            className="scale2"
             label='Male'
             name='radioGroup'
             value='male'
@@ -23,6 +24,7 @@ const GenderContent = () => {
             }}
         />
         <Radio
+            className="scale2"
             label='Female'
             name='radioGroup'
             value='female'
@@ -32,6 +34,7 @@ const GenderContent = () => {
             }}
         />
         <Radio
+            className="scale2"
             label='Other'
             name='radioGroup'
             value='other'
@@ -52,7 +55,7 @@ const GenderAction = ({ count, setCount, setGender }) => {
     };
     return (
         <div className="actions mb5 flex flex-column items-center">
-            <Button content='Next' onClick={onClick} primary/>
+            <Button content='Next' onClick={onClick} primary size="massive" />
         </div>
     );
 };
