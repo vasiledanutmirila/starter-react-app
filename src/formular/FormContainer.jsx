@@ -30,7 +30,7 @@ import { EasierDoubleTapOrPinchSpreadAction, EasierDoubleTapOrPinchSpreadContent
 import { ThanksAction, ThanksContent } from "./questions/Thanks";
 
 const FormContainer = () => {
-    const [ count, setCount ] = useState(13);
+    const [ count, setCount ] = useState(1);
     const [ age, setAge ] = useState();
     const [ gender, setGender ] = useState();
     const [ education, setEducation ] = useState();
