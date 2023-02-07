@@ -80,12 +80,10 @@ const DoubleTapEmulationContent = ({ setDoubleTapDisabled }) => {
 
     return (
         <div
-            className='imageContainer pt3 pb3 relative'
-            onTouchStart={tapHandler}
-            style={{ scale: scale }}
+            className='imageContainer pt3 pb3 relative overflow-hidden h-100'
         >
-            <img src={images[index]} alt="error" className='h-100' />
-            {found && scale ==='2' && <div className='found'>Found!</div>}
+            <img src={images[index]} alt="error" className='h-100' onTouchStart={tapHandler} style={{ scale: scale }} />
+            {found && scale ==='2' && <div className={`${index < 1 ? 'found' : 'foundIpad'} scale2`}>Found!</div>}
             {hint && !didAction && <img src={'/images/doubleTap/hint.png'} alt='error' className='doubleTap' />}
         </div>
     );

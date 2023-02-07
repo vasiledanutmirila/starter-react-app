@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { BrowserView, TabletView } from 'react-device-detect';
+import { BrowserView, IOSView, isDesktop, isIOS,  } from 'react-device-detect';
 import '../styles/Home.css';
 
 const articleStructuredData = {
@@ -15,12 +15,8 @@ const Home = () => {
         <script type="application/ld+json">
           {JSON.stringify(articleStructuredData)}
         </script>
-        <TabletView>
-          <Link className='buttonLink w-25 pa4' to="/form">Form</Link>
-        </TabletView>
-        <BrowserView>
-          <Link className='buttonLink w-25 pa4' to="/dashboard">Dashboard</Link>
-        </BrowserView>
+        {isIOS && <Link className='buttonLink w-25 pa4' to="/form">Form</Link>}
+        {isDesktop && <Link className='buttonLink w-25 pa4' to="/dashboard">Dashboard</Link>}
       </div>
     );
 };

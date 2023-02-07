@@ -29,7 +29,7 @@ const UsingSmartDevicesContent = ({ errorMessage }) => {
     return (
     <div className="content flex flex-column items-center justify-around pl4 pr4">
         <div className="question">For how many years have you been using smart devices?</div>
-        <div className="flex flex-column w-25">
+        <div className="flex flex-column w-25 h-50">
             <Dropdown
                 className="scale2"
                 placeholder='Years'

@@ -150,7 +150,7 @@ const FormContainer = () => {
                 );
             case 10:
                 return (
-                    <DeviceMostTimeSpentContent />
+                    <DeviceMostTimeSpentContent errorMessage={errorMessage} />
                 );
             case 11:
                 return (
@@ -300,7 +300,7 @@ const FormContainer = () => {
                 );
             case 10:
                 return (
-                    <DeviceMostTimeSpentAction count={count} setCount={setCount} setDeviceMostTimeSpent={setDeviceMostTimeSpent} />
+                    <DeviceMostTimeSpentAction count={count} setCount={setCount} setDeviceMostTimeSpent={setDeviceMostTimeSpent} setErrorMessage={setErrorMessage} />
                 );
             case 11:
                 return (
@@ -417,7 +417,7 @@ const FormContainer = () => {
 
     return  (
         <div className="formContainer flex flex-column justify-between items-center">
-            <div className={`header ${[13, 17, 23, 27].includes(count) ? 'mt1' : 'mt5'} flex flex-column items-center justify-center`}>Question #{count}</div>
+            <div className={`header ${[13, 17, 23, 27].includes(count) ? 'mt1' : 'mt5'} flex flex-column items-center justify-center`}>{count < 36 ? `Question #${count}` : 'Thank you!'}</div>
             {renderContent(count)}
             {renderAction(count)}
         </div>

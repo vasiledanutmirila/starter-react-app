@@ -128,7 +128,7 @@ const SwipeEmulationContent = ({ setSwipeDisabled }) => {
     return (
         <div className='imageContainer pt3 pb3 relative' onTouchStart={onTouchStart} onTouchEnd={onTouchEnd} onTouchMove={onTouchMove}>
             {index < images.length && <img className='h-100' src={images[index]} alt='error' />}
-            {index >= images.length && <div className='h-100 flex items-center'>Done!</div>}
+            {index >= images.length && <div className='h-100 flex items-center scale2'>Done!</div>}
             {index < images.length && <Button circular icon='close' className={`${index >= ipadImagesNumber ? 'ipadDislike' : 'dislike'}`} size='mini' color={dislike ? 'red' : 'grey'} />}
             {index < images.length && <Button circular icon='heart' className={`${index >= ipadImagesNumber ? 'ipadLike' : 'like'}`} size='mini' color={like ? 'green' : 'grey'} />}
             {hint === 'right' && !didAction && <img src={'/images/swipe/swipe-right.png'} alt='error' className='swipe' />}

@@ -36,7 +36,7 @@ const WorkIndustryContent = ({ errorMessage }) => {
     return (
     <div className="content flex flex-column items-center justify-around">
         <div className="question">In what industry are you currently working in?</div>
-        <div className="flex flex-column w-25">
+        <div className="flex flex-column w-25 h-50">
             <Dropdown
                 className="scale2"
                 placeholder='industry'
@@ -44,6 +44,7 @@ const WorkIndustryContent = ({ errorMessage }) => {
                 selection
                 options={options}
                 onChange={onChange}
+                
             />
             <span className="error mt5 scale2">{errorMessage}</span>
         </div>

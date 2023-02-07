@@ -14,7 +14,7 @@ const onChange = (e, { value }, deviceMostTimeSpent, setDeviceMostTimeSpent, key
     deviceMostTimeSpentValue[key] = value;
 };
 
-const DeviceMostTimeSpentContent = () => {
+const DeviceMostTimeSpentContent = ({ errorMessage }) => {
     const [ deviceMostTimeSpent, setDeviceMostTimeSpent ] = useState({
         smartphone: 1,
         tablet: 1,
@@ -25,7 +25,7 @@ const DeviceMostTimeSpentContent = () => {
     <div className="content flex flex-column items-center justify-around pl4 pr4">
         <div className="question">Note from 1 to 4 (with 1 the most important and 4 the least important) with which smart device you spend most of your time</div>
         <div className="w-50 flex justify-between scale18">
-            <div>Smartphone:</div>
+            <div className="w-70">Smartphone:</div>
             <Radio
                 className='ml2'
                 label='1'
@@ -68,7 +68,7 @@ const DeviceMostTimeSpentContent = () => {
             />
         </div>
         <div className="w-50 flex justify-between scale18">
-            <div>Tablet:</div>
+            <div className="w-70">Tablet:</div>
             <Radio
                 className='ml2'
                 label='1'
@@ -111,7 +111,7 @@ const DeviceMostTimeSpentContent = () => {
             />
         </div>
         <div className="w-50 flex justify-between scale18">
-            <div>Smartwatch:</div>
+            <div className="w-70">Smartwatch:</div>
             <Radio
                 className='ml2'
                 label='1'
@@ -154,7 +154,7 @@ const DeviceMostTimeSpentContent = () => {
             />
         </div>
         <div className="w-50 flex justify-between scale18">
-            <div>Smartband:</div>
+            <div className="w-70">Smartband:</div>
             <Radio
                 className='ml2'
                 label='1'
@@ -196,20 +196,27 @@ const DeviceMostTimeSpentContent = () => {
                 }}
             />
         </div>
+        <span className="error mt2 scale2 w-50">{errorMessage}</span>
     </div>
     );
 };
 
-const DeviceMostTimeSpentAction = ({ count, setCount, setDeviceMostTimeSpent }) => {
+const DeviceMostTimeSpentAction = ({ count, setCount, setDeviceMostTimeSpent, setErrorMessage }) => {
     const onClick = () => {
-        setCount(count + 1);
-        setDeviceMostTimeSpent(deviceMostTimeSpentValue);
-        deviceMostTimeSpentValue = {
-            smartphone: 1,
-            tablet: 1,
-            smartwatch: 1,
-            smartband: 1,
-        };
+        // console.log((new Set(Object.values(deviceMostTimeSpentValue))).size);
+        if ( (new Set(Object.values(deviceMostTimeSpentValue))).size === 4) {
+            setCount(count + 1);
+            setDeviceMostTimeSpent(deviceMostTimeSpentValue);
+            deviceMostTimeSpentValue = {
+                smartphone: 1,
+                tablet: 1,
+                smartwatch: 1,
+                smartband: 1,
+            };
+            setErrorMessage('');
+        } else {
+            setErrorMessage('Please select distinct values for each device!')
+        }
     };
     return (
         <div className="actions mb5 flex flex-column items-center">

@@ -103,18 +103,20 @@ const PinchSpreadEmulationContent = ({ setPinchSpreadDisabled }) => {
       }
 
     return (
-        <div
-            className='imageContainer pt3 pb3 relative'
-            onPointerDown={pointerDownHandler}
-            onPointerMove={pointerMoveHandler}
-            onPointerUp={pointerUpHandler}
-            onPointerCancel={pointerUpHandler}
-            onPointerOut={pointerUpHandler}
-            onPointerLeave={pointerUpHandler}
-            style={{ scale: scale }}
-        >
-            <img src={images[index]} alt="error" className='h-100' />
-            {found && scale ==='2' && <div className='found'>Found!</div>}
+        <div className='imageContainer pt3 pb3 relative overflow-hidden h-100' >
+            <img
+                src={images[index]}
+                alt="error"
+                className='h-100'
+                onPointerDown={pointerDownHandler}
+                onPointerMove={pointerMoveHandler}
+                onPointerUp={pointerUpHandler}
+                onPointerCancel={pointerUpHandler}
+                onPointerOut={pointerUpHandler}
+                onPointerLeave={pointerUpHandler}
+                style={{ scale: scale }}
+            />
+            {found && scale ==='2' && <div className={`${index < 1 ? 'found' : 'foundIpad'} scale2`}>Found!</div>}
             {hint && !didAction && <img src={'/images/pinch&spread/hint.png'} alt='error' className='pinch' />}
         </div>
     );
