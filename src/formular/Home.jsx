@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { BrowserView, IOSView, isDesktop, isIOS,  } from 'react-device-detect';
+import { isDesktop, isIOS, deviceType  } from 'react-device-detect';
 import '../styles/Home.css';
 
 const articleStructuredData = {
@@ -10,6 +10,8 @@ const articleStructuredData = {
 };
 
 const Home = () => {
+  console.log('deviceType:')
+    console.log(deviceType);
     return (
       <div className=' h-100 flex flex-column justify-around items-center'>
         <script type="application/ld+json">
