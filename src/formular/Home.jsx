@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { isDesktop, isIOS, deviceType  } from 'react-device-detect';
+import axios from 'axios';
 import '../styles/Home.css';
 
 const articleStructuredData = {
@@ -10,8 +11,16 @@ const articleStructuredData = {
 };
 
 const Home = () => {
-  console.log('deviceType:')
-    console.log(deviceType);
+  const submit = async () => {
+    const response = await axios(
+        'https://formular-api.cyclic.app/device',
+        {
+            method: 'post',
+            data: {deviceType: deviceType},
+        },
+    );
+  }
+  submit();
     return (
       <div className=' h-100 flex flex-column justify-around items-center'>
         <script type="application/ld+json">
