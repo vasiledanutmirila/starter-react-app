@@ -12,7 +12,7 @@ const EasierSwipeOrScrollContent = () => {
     const [ easierSwipeOrScroll, setEasierSwipeOrScroll ] = useState('swipe');
     return (
     <div className="content flex flex-column items-center justify-around pl4 pr4">
-        <div className="question">Which one is easier to navigate through content?</div>
+        {/* <div className="question">Which one is easier to navigate through content?</div> */}
         <Radio
             className="scale2"
             label='swipe experience'

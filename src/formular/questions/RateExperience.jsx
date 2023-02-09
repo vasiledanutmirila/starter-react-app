@@ -17,7 +17,7 @@ const RateExperienceContent = ({ errorMessage }) => {
     ];
     return (
     <div className="content flex flex-column items-center justify-around pl4 pr4">
-        <div className="question">How would you rate the experience? 1-not satisfying, 5-really satisfying</div>
+        {/* <div className="question">How would you rate the experience? 1-not satisfying, 5-really satisfying</div> */}
         <div className="flex flex-column">
             <Dropdown
                 className="scale2"

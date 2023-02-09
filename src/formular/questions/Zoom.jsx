@@ -12,7 +12,7 @@ const ZoomContent = () => {
     const [ zoom, setZoom ] = useState('doubleTap');
     return (
     <div className="content flex flex-column items-center justify-around pl4 pr4">
-        <div className="question">Which one do you prefer?</div>
+        {/* <div className="question">Which one do you prefer?</div> */}
         <Radio
             className="scale2"
             label='double tap'

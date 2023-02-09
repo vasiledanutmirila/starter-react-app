@@ -17,7 +17,7 @@ const ZoomEffectiveContent = ({ errorMessage }) => {
     ];
     return (
     <div className="content flex flex-column items-center justify-around pl4 pr4">
-        <div className="question">Is this way of zooming effective? 1-not really, 5-really liked it</div>
+        {/* <div className="question">Is this way of zooming effective? 1-not really, 5-really liked it</div> */}
         <div className="flex flex-column w-25">
             <Dropdown
                 className="scale2"

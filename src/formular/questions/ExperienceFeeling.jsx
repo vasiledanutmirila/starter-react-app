@@ -12,7 +12,7 @@ const ExperienceFeelingContent = () => {
     const [ experienceFeeling, setExperienceFeeling ] = useState('interested');
     return (
     <div className="content flex flex-column items-center justify-around pl4 pr4">
-        <div className="question">How did this experience make you feel?</div>
+        {/* <div className="question">How did this experience make you feel?</div> */}
         <Radio
             className="scale2"
             label='interested'

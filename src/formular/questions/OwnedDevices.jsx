@@ -15,7 +15,7 @@ const onChange = (e, { checked }, key) => {
 const OwnedDevicesContent = ({ errorMessage }) => {
     return (
         <div className="content flex flex-column items-center justify-around pl4 pr4">
-            <div className="question">What smart devices do you own?</div>
+            {/* <div className="question">What smart devices do you own?</div> */}
             <div className="flex flex-column items-center justify-around h-75 w-50">
                 <Checkbox
                     className="scale2"

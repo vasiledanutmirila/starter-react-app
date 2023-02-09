@@ -80,140 +80,162 @@ const Dashboard = () => {
                 {(swipeWithHint || swipeWithoutHint) && <div className='resultsContainer h-100 w-70 overflow-y-scroll pa4'>
                     <p className='resultHeader'>Total: {results?.length ?? ''}</p>
                     {results.length > 0 && (<div>
-                        <p className='resultHeader'>Swipe:</p>
-                        <div>
-                            <div>
-                                <DonutChart
-                                    data={[
-                                        { label: 'without hint', value: Number(((swipeWithoutHint?.length / results?.length) * 100).toFixed(2)) },
-                                        { label: 'with hint', value: Number(((swipeWithHint?.length / results?.length) * 100).toFixed(2)) }
-                                    ]}
-                                />
-                                <p>without hint:</p>
-                                <ul>
-                                    <li>
-                                        total time: {(swipeWithoutHint?.reduce((accumulator, result) => { return accumulator + result.swipeData.totalTime }, 0) / results?.length).toFixed(2) || ''}
-                                    </li>
-                                    <li>
-                                        time until action: {(swipeWithoutHint?.reduce((accumulator, result) => { return accumulator + result.swipeData.timeUntilAction }, 0) / results?.length).toFixed(2) || ''}
-                                    </li>
-                                </ul>
+                        <div className='charts'>
+                            <div className='chartItem'>
+                                <p className='resultHeader'>Swipe:</p>
+                                <div>
+                                    <div>
+                                        <DonutChart
+                                            data={[
+                                                { label: 'no hint', value: Number(((swipeWithoutHint?.length / results?.length) * 100).toFixed(2)) },
+                                                { label: 'hint', value: Number(((swipeWithHint?.length / results?.length) * 100).toFixed(2)) }
+                                            ]}
+                                            className='chart'
+                                            width={370}
+                                            height={250}
+                                        />
+                                        <p>no hint:</p>
+                                        <ul>
+                                            <li>
+                                                total time: {(swipeWithoutHint?.reduce((accumulator, result) => { return accumulator + result.swipeData.totalTime }, 0) / results?.length).toFixed(2) || ''}
+                                            </li>
+                                            <li>
+                                                time until action: {(swipeWithoutHint?.reduce((accumulator, result) => { return accumulator + result.swipeData.timeUntilAction }, 0) / results?.length).toFixed(2) || ''}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        hint:
+                                        <ul>
+                                            <li>
+                                                total time: {(swipeWithHint?.reduce((accumulator, result) => { return accumulator + result.swipeData.totalTime }, 0) / results?.length).toFixed(2) || ''}
+                                            </li>
+                                            <li>
+                                                time until action: {(swipeWithHint?.reduce((accumulator, result) => { return accumulator + result.swipeData.timeUntilAction }, 0) / results?.length).toFixed(2) || ''}
+                                            </li>
+                                            <li>
+                                                time until action after hint: {(swipeWithHint?.reduce((accumulator, result) => { return accumulator + result.swipeData.timeAfterHint }, 0) / results?.length).toFixed(2) || ''}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                            <div>
-                                with hint:
-                                <ul>
-                                    <li>
-                                        total time: {(swipeWithHint?.reduce((accumulator, result) => { return accumulator + result.swipeData.totalTime }, 0) / results?.length).toFixed(2) || ''}
-                                    </li>
-                                    <li>
-                                        time until action: {(swipeWithHint?.reduce((accumulator, result) => { return accumulator + result.swipeData.timeUntilAction }, 0) / results?.length).toFixed(2) || ''}
-                                    </li>
-                                    <li>
-                                        time until action after hint: {(swipeWithHint?.reduce((accumulator, result) => { return accumulator + result.swipeData.timeAfterHint }, 0) / results?.length).toFixed(2) || ''}
-                                    </li>
-                                </ul>
+                            <div className='chartItem'>
+                                <p className='resultHeader'>Scroll:</p>
+                                <div>
+                                    <div>
+                                        <DonutChart
+                                            data={[
+                                                { label: 'no hint', value: Number(((scrollWithoutHint?.length / results?.length) * 100).toFixed(2)) },
+                                                { label: 'hint', value: Number(((scrollWithHint?.length / results?.length) * 100).toFixed(2)) }
+                                            ]}
+                                            className='chart'
+                                            width={370}
+                                            height={250}
+                                        />
+                                        <p>no hint:</p>
+                                        <ul>
+                                            <li>
+                                                total time: {(scrollWithoutHint?.reduce((accumulator, result) => { return accumulator + result.scrollData.totalTime }, 0) / results?.length).toFixed(2) || ''}
+                                            </li>
+                                            <li>
+                                                time until action: {(scrollWithoutHint?.reduce((accumulator, result) => { return accumulator + result.scrollData.timeUntilAction }, 0) / results?.length).toFixed(2) || ''}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        hint:
+                                        <ul>
+                                            <li>
+                                                total time: {(scrollWithHint?.reduce((accumulator, result) => { return accumulator + result.scrollData.totalTime }, 0) / results?.length).toFixed(2) || ''}
+                                            </li>
+                                            <li>
+                                                time until action: {(scrollWithHint?.reduce((accumulator, result) => { return accumulator + result.scrollData.timeUntilAction }, 0) / results?.length).toFixed(2) || ''}
+                                            </li>
+                                            <li>
+                                                time until action after hint: {(scrollWithHint?.reduce((accumulator, result) => { return accumulator + result.scrollData.timeAfterHint }, 0) / results?.length).toFixed(2) || ''}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <p className='resultHeader'>Scroll:</p>
-                        <div>
-                            <div>
-                                <DonutChart
-                                    data={[
-                                        { label: 'without hint', value: Number(((scrollWithoutHint?.length / results?.length) * 100).toFixed(2)) },
-                                        { label: 'with hint', value: Number(((scrollWithHint?.length / results?.length) * 100).toFixed(2)) }
-                                    ]}
-                                />
-                                <p>without hint:</p>
-                                <ul>
-                                    <li>
-                                        total time: {(scrollWithoutHint?.reduce((accumulator, result) => { return accumulator + result.scrollData.totalTime }, 0) / results?.length).toFixed(2) || ''}
-                                    </li>
-                                    <li>
-                                        time until action: {(scrollWithoutHint?.reduce((accumulator, result) => { return accumulator + result.scrollData.timeUntilAction }, 0) / results?.length).toFixed(2) || ''}
-                                    </li>
-                                </ul>
+                            <div className='chartItem'>
+                                <p className='resultHeader'>Double tap:</p>
+                                <div>
+                                    <div>
+                                        <DonutChart
+                                            data={[
+                                                { label: 'no hint', value: Number(((doubleTapWithoutHint?.length / results?.length) * 100).toFixed(2)) },
+                                                { label: 'hint', value: Number(((doubleTapWithHint?.length / results?.length) * 100).toFixed(2)) }
+                                            ]}
+                                            className='chart'
+                                            width={370}
+                                            height={250}
+                                        />
+                                        <p>no hint:</p>
+                                        <ul>
+                                            <li>
+                                                total time: {(doubleTapWithoutHint?.reduce((accumulator, result) => { return accumulator + result.doubleTapData.totalTime }, 0) / results?.length).toFixed(2) || ''}
+                                            </li>
+                                            <li>
+                                                time until action: {(doubleTapWithoutHint?.reduce((accumulator, result) => { return accumulator + result.doubleTapData.timeUntilAction }, 0) / results?.length).toFixed(2) || ''}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        with hint:
+                                        <ul>
+                                            <li>
+                                                total time: {(doubleTapWithHint?.reduce((accumulator, result) => { return accumulator + result.doubleTapData.totalTime }, 0) / results?.length).toFixed(2) || ''}
+                                            </li>
+                                            <li>
+                                                time until action: {(doubleTapWithHint?.reduce((accumulator, result) => { return accumulator + result.doubleTapData.timeUntilAction }, 0) / results?.length).toFixed(2) || ''}
+                                            </li>
+                                            <li>
+                                                time until action after hint: {(doubleTapWithHint?.reduce((accumulator, result) => { return accumulator + result.doubleTapData.timeAfterHint }, 0) / results?.length).toFixed(2) || ''}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                            <div>
-                                with hint:
-                                <ul>
-                                    <li>
-                                        total time: {(scrollWithHint?.reduce((accumulator, result) => { return accumulator + result.scrollData.totalTime }, 0) / results?.length).toFixed(2) || ''}
-                                    </li>
-                                    <li>
-                                        time until action: {(scrollWithHint?.reduce((accumulator, result) => { return accumulator + result.scrollData.timeUntilAction }, 0) / results?.length).toFixed(2) || ''}
-                                    </li>
-                                    <li>
-                                        time until action after hint: {(scrollWithHint?.reduce((accumulator, result) => { return accumulator + result.scrollData.timeAfterHint }, 0) / results?.length).toFixed(2) || ''}
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <p className='resultHeader'>Double tap:</p>
-                        <div>
-                            <div>
-                                <DonutChart
-                                    data={[
-                                        { label: 'without hint', value: Number(((doubleTapWithoutHint?.length / results?.length) * 100).toFixed(2)) },
-                                        { label: 'with hint', value: Number(((doubleTapWithHint?.length / results?.length) * 100).toFixed(2)) }
-                                    ]}
-                                />
-                                <p>without hint:</p>
-                                <ul>
-                                    <li>
-                                        total time: {(doubleTapWithoutHint?.reduce((accumulator, result) => { return accumulator + result.doubleTapData.totalTime }, 0) / results?.length).toFixed(2) || ''}
-                                    </li>
-                                    <li>
-                                        time until action: {(doubleTapWithoutHint?.reduce((accumulator, result) => { return accumulator + result.doubleTapData.timeUntilAction }, 0) / results?.length).toFixed(2) || ''}
-                                    </li>
-                                </ul>
-                            </div>
-                            <div>
-                                with hint:
-                                <ul>
-                                    <li>
-                                        total time: {(doubleTapWithHint?.reduce((accumulator, result) => { return accumulator + result.doubleTapData.totalTime }, 0) / results?.length).toFixed(2) || ''}
-                                    </li>
-                                    <li>
-                                        time until action: {(doubleTapWithHint?.reduce((accumulator, result) => { return accumulator + result.doubleTapData.timeUntilAction }, 0) / results?.length).toFixed(2) || ''}
-                                    </li>
-                                    <li>
-                                        time until action after hint: {(doubleTapWithHint?.reduce((accumulator, result) => { return accumulator + result.doubleTapData.timeAfterHint }, 0) / results?.length).toFixed(2) || ''}
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <p className='resultHeader'>Pinch & spread:</p>
-                        <div>
-                            <div>
-                                <DonutChart
-                                    data={[
-                                        { label: 'without hint', value: Number(((pinchSpreadWithoutHint?.length / results?.length) * 100).toFixed(2)) },
-                                        { label: 'with hint', value: Number(((pinchSpreadWithHint?.length / results?.length) * 100).toFixed(2)) }
-                                    ]}
-                                />
-                                <p>without hint:</p>
-                                <ul>
-                                    <li>
-                                        total time: {(doubleTapWithoutHint?.reduce((accumulator, result) => { return accumulator + result.pinchSpreadData.totalTime }, 0) / results?.length).toFixed(2) || ''}
-                                    </li>
-                                    <li>
-                                        time until action: {(doubleTapWithoutHint?.reduce((accumulator, result) => { return accumulator + result.pinchSpreadData.timeUntilAction }, 0) / results?.length).toFixed(2) || ''}
-                                    </li>
-                                </ul>
-                            </div>
-                            <div>
-                                with hint:
-                                <ul>
-                                    <li>
-                                        total time: {(doubleTapWithHint?.reduce((accumulator, result) => { return accumulator + result.pinchSpreadData.totalTime }, 0) / results?.length).toFixed(2) || ''}
-                                    </li>
-                                    <li>
-                                        time until action: {(doubleTapWithHint?.reduce((accumulator, result) => { return accumulator + result.pinchSpreadData.timeUntilAction }, 0) / results?.length).toFixed(2) || ''}
-                                    </li>
-                                    <li>
-                                        time until action after hint: {(doubleTapWithHint?.reduce((accumulator, result) => { return accumulator + result.pinchSpreadData.timeAfterHint }, 0) / results?.length).toFixed(2) || ''}
-                                    </li>
-                                </ul>
+                            <div className='chartItem'>
+                                <p className='resultHeader'>Pinch & spread:</p>
+                                <div>
+                                    <div>
+                                        <DonutChart
+                                            data={[
+                                                { label: 'no hint', value: Number(((pinchSpreadWithoutHint?.length / results?.length) * 100).toFixed(2)) },
+                                                { label: 'hint', value: Number(((pinchSpreadWithHint?.length / results?.length) * 100).toFixed(2)) }
+                                            ]}
+                                            className='chart'
+                                            width={370}
+                                            height={250}
+                                        />
+                                        <p>no hint:</p>
+                                        <ul>
+                                            <li>
+                                                total time: {(doubleTapWithoutHint?.reduce((accumulator, result) => { return accumulator + result.pinchSpreadData.totalTime }, 0) / results?.length).toFixed(2) || ''}
+                                            </li>
+                                            <li>
+                                                time until action: {(doubleTapWithoutHint?.reduce((accumulator, result) => { return accumulator + result.pinchSpreadData.timeUntilAction }, 0) / results?.length).toFixed(2) || ''}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        hint:
+                                        <ul>
+                                            <li>
+                                                total time: {(doubleTapWithHint?.reduce((accumulator, result) => { return accumulator + result.pinchSpreadData.totalTime }, 0) / results?.length).toFixed(2) || ''}
+                                            </li>
+                                            <li>
+                                                time until action: {(doubleTapWithHint?.reduce((accumulator, result) => { return accumulator + result.pinchSpreadData.timeUntilAction }, 0) / results?.length).toFixed(2) || ''}
+                                            </li>
+                                            <li>
+                                                time until action after hint: {(doubleTapWithHint?.reduce((accumulator, result) => { return accumulator + result.pinchSpreadData.timeAfterHint }, 0) / results?.length).toFixed(2) || ''}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div className='pt6'>

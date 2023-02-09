@@ -32,7 +32,7 @@ const TimeSpentContent = ({ errorMessage }) => {
     ];
     return (
     <div className="content flex flex-column items-center justify-around pl4 pr4">
-        <div className="question">How much time do you spend daily on a smartphone/tablet?</div>
+        {/* <div className="question">How much time do you spend daily on a smartphone/tablet?</div> */}
         <div className="flex flex-column w-50 h-50">
             <Dropdown
                 className="scale2"

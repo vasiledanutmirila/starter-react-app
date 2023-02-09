@@ -12,7 +12,7 @@ const GenderContent = () => {
     const [ gender, setGender ] = useState('male');
     return (
     <div className="content flex flex-column items-center justify-around pl4 pr4">
-        <div className="question">With what gender do you identify?</div>
+        {/* <div className="question">With what gender do you identify?</div> */}
         <Radio
             className="scale2"
             label='Male'

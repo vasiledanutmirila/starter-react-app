@@ -12,7 +12,7 @@ const SubscriptionAmountContent = () => {
     const [ subscriptionAmount, setSubscriptionAmount ] = useState('0-5');
     return (
     <div className="content flex flex-column items-center justify-around pl4 pr4">
-        <div className="question">What's the amount of the money that you would pay for a monthly subscription for an app?</div>
+        {/* <div className="question">What's the amount of the money that you would pay for a monthly subscription for an app?</div> */}
         <Radio
             className="scale2"
             label='0-5 ron'

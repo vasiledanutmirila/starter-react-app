@@ -12,7 +12,7 @@ const EasierDoubleTapOrPinchSpreadContent = () => {
     const [ easierDoubleTapOrPinchSpread, setEasierDoubleTapOrPinchSpread ] = useState('doubleTap');
     return (
     <div className="content flex flex-column items-center justify-around pl4 pr4">
-        <div className="question">Which one is easier to use for zooming?</div>
+        {/* <div className="question">Which one is easier to use for zooming?</div> */}
         <Radio
             className="scale2"
             label='double tap'

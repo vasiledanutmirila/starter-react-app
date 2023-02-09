@@ -12,7 +12,7 @@ const SubscriptionContent = () => {
     const [ subscription, setSubscription ] = useState('yes');
     return (
     <div className="content flex flex-column items-center justify-around pl4 pr4">
-        <div className="question">Would you pay a monthly subscription for an app?</div>
+        {/* <div className="question">Would you pay a monthly subscription for an app?</div> */}
         <Radio
             className="scale2"
             label='yes'

@@ -17,7 +17,7 @@ const NavigateContent = ({ errorMessage }) => {
     ];
     return (
     <div className="content flex flex-column items-center justify-around pl4 pr4">
-        <div className="question">Would you like to navigate throughout a feed this way? 1-not really, 5-really liked it</div>
+        {/* <div className="question">Would you like to navigate throughout a feed this way? 1-not really, 5-really liked it</div> */}
         <div className="flex flex-column w-25">
             <Dropdown
                 className="scale2"

@@ -23,7 +23,7 @@ const DeviceMostTimeSpentContent = ({ errorMessage }) => {
     });
     return (
     <div className="content flex flex-column items-center justify-around pl4 pr4">
-        <div className="question">Note from 1 to 4 (with 1 the most important and 4 the least important) with which smart device you spend most of your time</div>
+        {/* <div className="question">Note from 1 to 4 (with 1 the most important and 4 the least important) with which smart device you spend most of your time</div> */}
         <div className="w-50 flex justify-between scale18">
             <div className="w-70">Smartphone:</div>
             <Radio

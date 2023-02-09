@@ -12,7 +12,7 @@ const LikeDoubleTapOrPinchSpreadContent = () => {
     const [ likeDoubleTapOrPinchSpread, setLikeDoubleTapOrPinchSpread ] = useState('doubleTap');
     return (
     <div className="content flex flex-column items-center justify-around pl4 pr4">
-        <div className="question">Which one did you like the most?</div>
+        {/* <div className="question">Which one did you like the most?</div> */}
         <Radio
             className="scale2"
             label='double tap'

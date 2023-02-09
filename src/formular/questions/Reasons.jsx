@@ -17,7 +17,7 @@ const onChange = (e, { checked }, key) => {
 const ReasonsContent = ({ errorMessage }) => {
     return (
         <div className="content flex flex-column items-center justify-around pl4 pr4">
-            <div className="question">Which of the following are the reasons why you use mostly smart devices?</div>
+            {/* <div className="question">Which of the following are the reasons why you use mostly smart devices?</div> */}
             <div className="flex flex-column items-center justify-around h-75 w-50">
                 <Checkbox
                     className="scale2"

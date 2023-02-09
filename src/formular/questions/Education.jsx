@@ -12,7 +12,7 @@ const EducationContent = () => {
     const [ education, setEducation ] = useState('middleSchool');
     return (
     <div className="content flex flex-column items-center justify-around pl4 pr4">
-        <div className="question">Last level of education that you finished</div>
+        {/* <div className="question">Last level of education that you finished</div> */}
         <Radio
             className="scale2"
             label='Middle school'

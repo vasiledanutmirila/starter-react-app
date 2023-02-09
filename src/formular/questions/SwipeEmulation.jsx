@@ -115,7 +115,7 @@ const SwipeEmulationContent = ({ setSwipeDisabled }) => {
         }
     }
 
-    if ( index === images.length / 2 ) {
+    if ( index === (images.length / 2) + 2 ) {
         setSwipeDisabled(false);
     } 
     const data = {
