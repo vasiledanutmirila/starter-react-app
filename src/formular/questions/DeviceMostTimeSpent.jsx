@@ -17,9 +17,9 @@ const onChange = (e, { value }, deviceMostTimeSpent, setDeviceMostTimeSpent, key
 const DeviceMostTimeSpentContent = ({ errorMessage }) => {
     const [ deviceMostTimeSpent, setDeviceMostTimeSpent ] = useState({
         smartphone: 1,
-        tablet: 1,
-        smartwatch: 1,
-        smartband: 1,
+        tablet: 2,
+        smartwatch: 3,
+        smartband: 4,
     });
     return (
     <div className="content flex flex-column items-center justify-around pl4 pr4">
