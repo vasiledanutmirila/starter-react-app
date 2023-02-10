@@ -141,6 +141,8 @@ const SwipeEmulationAction = ({ count, setCount, setSwipeData, disabled }) => {
     const onClick = () => {
         setCount(count + 1);
         setSwipeData({...swipeData, totalTime: Math.floor((Date.now() - startTime) / 1000)});
+        swipeData = {};
+        startTime = undefined;
     };
     return (
         <div className="actions mb3 flex flex-column items-center">

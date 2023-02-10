@@ -126,6 +126,8 @@ const PinchSpreadEmulationAction = ({ count, setCount, setPinchSpreadData, disab
     const onClick = () => {
         setCount(count + 1);
         setPinchSpreadData({...pinchSpreadData, totalTime: Math.floor((Date.now() - startTime) / 1000)});
+        pinchSpreadData = {};
+        startTime = undefined;
     };
     return (
         <div className="actions mb3 flex flex-column items-center">

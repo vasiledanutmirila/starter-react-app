@@ -118,6 +118,8 @@ const ScrollEmulationAction = ({ count, setCount, setScrollData, disabled }) => 
     const onClick = () => {
         setCount(count + 1);
         setScrollData({...scrollData, totalTime: Math.floor((Date.now() - startTime) / 1000)});
+        scrollData = {};
+        startTime = undefined;
     };
     return (
         <div className="actions mb3 flex flex-column items-center">

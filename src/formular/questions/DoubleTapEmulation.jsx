@@ -93,6 +93,8 @@ const DoubleTapEmulationAction = ({ count, setCount, setDoubleTapData, disabled 
     const onClick = () => {
         setCount(count + 1);
         setDoubleTapData({...doubleTapData, totalTime: Math.floor((Date.now() - startTime) / 1000)});
+        doubleTapData = {};
+        startTime = undefined;
     };
     return (
         <div className="actions mb3 flex flex-column items-center">

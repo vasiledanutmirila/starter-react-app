@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Radio } from 'semantic-ui-react';
 
-let subscriptionAmountValue = 'male';
+let subscriptionAmountValue = '0-5';
 
 const onChange = (e, { value }, setSubscriptionAmount) => {
     setSubscriptionAmount(value);
