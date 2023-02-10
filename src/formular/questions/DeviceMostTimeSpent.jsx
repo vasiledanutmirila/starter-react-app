@@ -4,9 +4,9 @@ import '../../styles/Form.css';
 
 let deviceMostTimeSpentValue = {
     smartphone: 1,
-    tablet: 1,
-    smartwatch: 1,
-    smartband: 1,
+    tablet: 2,
+    smartwatch: 3,
+    smartband: 4,
 };
 
 const onChange = (e, { value }, deviceMostTimeSpent, setDeviceMostTimeSpent, key) => {
