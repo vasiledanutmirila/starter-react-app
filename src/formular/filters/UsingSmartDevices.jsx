@@ -6,6 +6,7 @@ import '../../styles/Dashboard.css';
 const UsingSmartDevices = ({ setResults }) => {
     const [ usingSmartDevicesMin, setUsingSmartDevicesMin ] = useState();
     const [ usingSmartDevicesMax, setUsingSmartDevicesMax ] = useState();
+    const [ experienceError, setExperienceError ] = useState();
 
     const usingSmartDevicesageMinHandler = (e) => {
         setUsingSmartDevicesMin(Number(e.target.value));
@@ -16,14 +17,23 @@ const UsingSmartDevices = ({ setResults }) => {
     };
 
     const usingSmartDevicesOnClick = async () => {
-        const response = await axios(
-            'https://formular-api.cyclic.app/find/usingSmartDevices',
-            {
-                method: 'get',
-                params: { usingSmartDevicesMin: usingSmartDevicesMin, usingSmartDevicesMax: usingSmartDevicesMax },
-            },
-        );
-        setResults(await response.data)
+        if (usingSmartDevicesMax && usingSmartDevicesMin) {
+            if (usingSmartDevicesMax < usingSmartDevicesMin || usingSmartDevicesMin < 0 || usingSmartDevicesMax < 0) {
+                setExperienceError('Values must be greater than 0. Max value must be greater or equal to min value.');
+            } else {
+                setExperienceError('');
+                const response = await axios(
+                    'https://formular-api.cyclic.app/find/usingSmartDevices',
+                    {
+                        method: 'get',
+                        params: { usingSmartDevicesMin: usingSmartDevicesMin, usingSmartDevicesMax: usingSmartDevicesMax },
+                    },
+                );
+                setResults(await response.data)
+            }
+        } else {
+            setExperienceError('Both fields must be filled.');
+        }
     };
 
     return (
@@ -37,7 +47,8 @@ const UsingSmartDevices = ({ setResults }) => {
                 <span>max:</span>
                 <Input type='number' onChange={usingSmartDevicesMaxHandler} />
             </div>
-            <Button className='w-25' disabled={!usingSmartDevicesMin || !usingSmartDevicesMax} content="Find" primary onClick={usingSmartDevicesOnClick} />
+            <div className='error'>{experienceError}</div>
+            <Button className='w-25' content="Find" primary onClick={usingSmartDevicesOnClick} />
         </div>
     );
 };

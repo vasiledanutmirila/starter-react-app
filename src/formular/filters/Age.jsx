@@ -6,6 +6,7 @@ import '../../styles/Dashboard.css';
 const Age = ({ setResults }) => {
     const [ ageMin, setAgeMin ] = useState();
     const [ ageMax, setAgeMax ] = useState();
+    const [ ageError, setAgeError ] = useState();
 
     const ageMinHandler = (e) => {
         setAgeMin(Number(e.target.value));
@@ -16,14 +17,23 @@ const Age = ({ setResults }) => {
     };
 
     const ageOnClick = async () => {
-        const response = await axios(
-            'https://formular-api.cyclic.app/find/age',
-            {
-                method: 'get',
-                params: { ageMin: ageMin, ageMax: ageMax },
-            },
-        );
-        setResults(await response.data)
+        if (ageMin && ageMax) {
+            if (ageMax < ageMin || ageMax < 15 || ageMin < 15) {
+                setAgeError('Age must be greater than 15. Max value must be greater or equal to min value!')
+            } else {
+                setAgeError('');
+                const response = await axios(
+                    'https://formular-api.cyclic.app/find/age',
+                    {
+                        method: 'get',
+                        params: { ageMin: ageMin, ageMax: ageMax },
+                    },
+                );
+                setResults(await response.data)
+            }
+        } else {
+            setAgeError('Both fields must be filled.');
+        }
     };
 
     return (
@@ -37,7 +47,8 @@ const Age = ({ setResults }) => {
                 <span>max:</span>
                 <Input type='number' onChange={ageMaxHandler} />
             </div>
-            <Button className='w-25' disabled={!ageMin || !ageMax} content="Find" primary onClick={ageOnClick} />
+            {ageError && <p className='error'>{ageError}</p>}
+            <Button className='w-25' content="Find" primary onClick={ageOnClick} />
         </div>
     );
 };
