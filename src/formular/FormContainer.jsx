@@ -28,6 +28,7 @@ import { MonthlyAmountAction, MonthlyAmountContent } from "./questions/MonthlyAm
 import { LikeDoubleTapOrPinchSpreadAction, LikeDoubleTapOrPinchSpreadContent } from "./questions/LikeDoubleTapOrPinchSpread";
 import { EasierDoubleTapOrPinchSpreadAction, EasierDoubleTapOrPinchSpreadContent } from "./questions/EasierDoubleTapOrPinchSpread";
 import { ThanksAction, ThanksContent } from "./questions/Thanks";
+import { BestExperienceAction, BestExperienceContent } from "./questions/BestExoperience";
 
 const FormContainer = () => {
     const [ count, setCount ] = useState(1);
@@ -71,6 +72,10 @@ const FormContainer = () => {
     const [ pinchSpreadData, setPinchSpreadData ] = useState();
     const [ doubleTapDisabled, setDoubleTapDisabled ] = useState(true);
     const [ doubleTapData, setDoubleTapData ] = useState();
+    const [ swipeBestExperience, setSwipeBestExperience ] = useState();
+    const [ scrollBestExperience, setScrollBestExperience ] = useState();
+    const [ doubleTapBestExperience, setDoubleTapBestExperience ] = useState();
+    const [ pinchSpreadBestExperience, setPinchSpreadBestExperience ] = useState();
 
     const data = {
         age: age,
@@ -108,6 +113,10 @@ const FormContainer = () => {
         scrollData: scrollData,
         pinchSpreadData: pinchSpreadData,
         doubleTapData: doubleTapData,
+        swipeBestExperience: swipeBestExperience,
+        scrollBestExperience: scrollBestExperience,
+        doubleTapBestExperience: doubleTapBestExperience,
+        pinchSpreadBestExperience: pinchSpreadBestExperience,
     };
 
     const questions = [
@@ -125,20 +134,24 @@ const FormContainer = () => {
         'Which one do you prefer?',
         'Which of the following are the reasons why you use mostly smart devices?',
         '',
+        'On which device did you have the best experience?',
         'How did this experience make you feel?',
         'How would you rate the experience? 1-not satisfying, 5-really satisfying',
         'Would you like to navigate throughout a feed this way? 1-not really, 5-really liked it',
         '',
+        'On which device did you have the best experience?',
         'How did this experience make you feel?',
         'How would you rate the experience? 1-not satisfying, 5-really satisfying',
         'Would you like to navigate throughout a feed this way? 1-not really, 5-really liked it',
         'Which one did you like the most?',
         'Which one is easier to navigate through content?',
         '',
+        'On which device did you have the best experience?',
         'How did this experience make you feel?',
         'How would you rate the experience? 1-not satisfying, 5-really satisfying',
         'Is this way of zooming effective? 1-not really, 5-really liked it',
         '',
+        'On which device did you have the best experience?',
         'How did this experience make you feel?',
         'How would you rate the experience? 1-not satisfying, 5-really satisfying',
         'Is this way of zooming effective? 1-not really, 5-really liked it',
@@ -206,89 +219,105 @@ const FormContainer = () => {
                 );
             case 14:
                 return (
-                    <ExperienceFeelingContent />
+                    <BestExperienceContent />
                 );
             case 15:
                 return (
-                    <RateExperienceContent errorMessage={errorMessage} />
+                    <ExperienceFeelingContent />
                 );
             case 16:
                 return (
-                    <NavigateContent errorMessage={errorMessage} />
+                    <RateExperienceContent errorMessage={errorMessage} />
                 );
             case 17:
                 return (
-                    <ScrollEmulationContent setScrollDisabled={setScrollDisabled} />
+                    <NavigateContent errorMessage={errorMessage} />
                 );
             case 18:
                 return (
-                    <ExperienceFeelingContent />
+                    <ScrollEmulationContent setScrollDisabled={setScrollDisabled} />
                 );
             case 19:
                 return (
-                    <RateExperienceContent errorMessage={errorMessage} />
+                    <BestExperienceContent />
                 );
             case 20:
                 return (
-                    <NavigateContent errorMessage={errorMessage} />
+                    <ExperienceFeelingContent />
                 );
             case 21:
                 return (
-                    <LikeSwipeOrScrollContent />
+                    <RateExperienceContent errorMessage={errorMessage} />
                 );
             case 22:
                 return (
-                    <EasierSwipeOrScrollContent />
+                    <NavigateContent errorMessage={errorMessage} />
                 );
             case 23:
                 return (
-                    <DoubleTapEmulationContent setDoubleTapDisabled={setDoubleTapDisabled} />
+                    <LikeSwipeOrScrollContent />
                 );
             case 24:
                 return (
-                    <ExperienceFeelingContent />
+                    <EasierSwipeOrScrollContent />
                 );
             case 25:
                 return (
-                    <RateExperienceContent errorMessage={errorMessage} />
+                    <DoubleTapEmulationContent setDoubleTapDisabled={setDoubleTapDisabled} />
                 );
             case 26:
                 return (
-                    <ZoomEffectiveContent errorMessage={errorMessage} />
+                    <BestExperienceContent />
                 );
             case 27:
                 return (
-                    <PinchSpreadEmulationContent setPinchSpreadDisabled={setPinchSpreadDisabled} />
+                    <ExperienceFeelingContent />
                 );
             case 28:
                 return (
-                    <ExperienceFeelingContent />
+                    <RateExperienceContent errorMessage={errorMessage} />
                 );
             case 29:
                 return (
-                    <RateExperienceContent errorMessage={errorMessage} />
+                    <ZoomEffectiveContent errorMessage={errorMessage} />
                 );
             case 30:
                 return (
-                    <ZoomEffectiveContent  errorMessage={errorMessage}/>
+                    <PinchSpreadEmulationContent setPinchSpreadDisabled={setPinchSpreadDisabled} />
                 );
             case 31:
                 return (
-                    <LikeDoubleTapOrPinchSpreadContent />
+                    <BestExperienceContent />
                 );
             case 32:
                 return (
-                    <EasierDoubleTapOrPinchSpreadContent />
+                    <ExperienceFeelingContent />
                 );
             case 33:
                 return (
-                    <MonthlyAmountContent />
+                    <RateExperienceContent errorMessage={errorMessage} />
                 );
             case 34:
                 return (
-                    <SubscriptionContent />
+                    <ZoomEffectiveContent  errorMessage={errorMessage}/>
                 );
             case 35:
+                return (
+                    <LikeDoubleTapOrPinchSpreadContent />
+                );
+            case 36:
+                return (
+                    <EasierDoubleTapOrPinchSpreadContent />
+                );
+            case 37:
+                return (
+                    <MonthlyAmountContent />
+                );
+            case 38:
+                return (
+                    <SubscriptionContent />
+                );
+            case 39:
                 return (
                     <SubscriptionAmountContent />
                 );
@@ -356,89 +385,105 @@ const FormContainer = () => {
                 );
             case 14:
                 return (
-                    <ExperienceFeelingAction count={count} setCount={setCount} setExperienceFeeling={setSwipeExperienceFeeling} />
+                    <BestExperienceAction count={count} setCount={setCount} setBestExperience={setSwipeBestExperience} />
                 );
             case 15:
                 return (
-                    <RateExperienceAction count={count} setCount={setCount} setRateExperience={setSwipeRateExperience} setErrorMessage={setErrorMessage} />
+                    <ExperienceFeelingAction count={count} setCount={setCount} setExperienceFeeling={setSwipeExperienceFeeling} />
                 );
             case 16:
                 return (
-                    <NavigateAction count={count} setCount={setCount} setNavigate={setSwipeNavigate} setErrorMessage={setErrorMessage} />
+                    <RateExperienceAction count={count} setCount={setCount} setRateExperience={setSwipeRateExperience} setErrorMessage={setErrorMessage} />
                 );
             case 17:
                 return (
-                    <ScrollEmulationAction count={count} setCount={setCount} setScrollData={setScrollData} disabled={scrollDisabled} />
-                )
+                    <NavigateAction count={count} setCount={setCount} setNavigate={setSwipeNavigate} setErrorMessage={setErrorMessage} />
+                );
             case 18:
                 return (
-                    <ExperienceFeelingAction count={count} setCount={setCount} setExperienceFeeling={setScrollExperienceFeeling} />
+                    <ScrollEmulationAction count={count} setCount={setCount} setScrollData={setScrollData} disabled={scrollDisabled} />
                 );
             case 19:
                 return (
-                    <RateExperienceAction count={count} setCount={setCount} setRateExperience={setScrollRateExperience} setErrorMessage={setErrorMessage} />
+                    <BestExperienceAction count={count} setCount={setCount} setBestExperience={setScrollBestExperience} />
                 );
             case 20:
                 return (
-                    <NavigateAction count={count} setCount={setCount} setNavigate={setScrollNavigate} setErrorMessage={setErrorMessage} />
+                    <ExperienceFeelingAction count={count} setCount={setCount} setExperienceFeeling={setScrollExperienceFeeling} />
                 );
             case 21:
                 return (
-                    <LikeSwipeOrScrollAction count={count} setCount={setCount} setLikeSwipeOrScroll={setLikeSwipeOrScroll} />
+                    <RateExperienceAction count={count} setCount={setCount} setRateExperience={setScrollRateExperience} setErrorMessage={setErrorMessage} />
                 );
             case 22:
                 return (
-                    <EasierSwipeOrScrollAction count={count} setCount={setCount} setEasierSwipeOrScroll={setEasierSwipeOrScroll} />
+                    <NavigateAction count={count} setCount={setCount} setNavigate={setScrollNavigate} setErrorMessage={setErrorMessage} />
                 );
             case 23:
                 return (
-                    <DoubleTapEmulationAction count={count} setCount={setCount} setDoubleTapData={setDoubleTapData} disabled={doubleTapDisabled} />
+                    <LikeSwipeOrScrollAction count={count} setCount={setCount} setLikeSwipeOrScroll={setLikeSwipeOrScroll} />
                 );
             case 24:
                 return (
-                    <ExperienceFeelingAction count={count} setCount={setCount} setExperienceFeeling={setDoubleTapExperienceFeeling} />
+                    <EasierSwipeOrScrollAction count={count} setCount={setCount} setEasierSwipeOrScroll={setEasierSwipeOrScroll} />
                 );
             case 25:
                 return (
-                    <RateExperienceAction count={count} setCount={setCount} setRateExperience={setDoubleTapRateExperience} setErrorMessage={setErrorMessage} />
+                    <DoubleTapEmulationAction count={count} setCount={setCount} setDoubleTapData={setDoubleTapData} disabled={doubleTapDisabled} />
                 );
             case 26:
                 return (
-                    <ZoomEffectiveAction count={count} setCount={setCount} setZoomEffective={setDoubleTapNavigate} setErrorMessage={setErrorMessage} />
+                    <BestExperienceAction count={count} setCount={setCount} setBestExperience={setDoubleTapBestExperience} />
                 );
             case 27:
                 return (
-                    <PinchSpreadEmulationAction count={count} setCount={setCount} setPinchSpreadData={setPinchSpreadData} disabled={pinchSpreadDisabled} />
+                    <ExperienceFeelingAction count={count} setCount={setCount} setExperienceFeeling={setDoubleTapExperienceFeeling} />
                 );
             case 28:
                 return (
-                    <ExperienceFeelingAction count={count} setCount={setCount} setExperienceFeeling={setPinchSpreadExperienceFeeling} />
+                    <RateExperienceAction count={count} setCount={setCount} setRateExperience={setDoubleTapRateExperience} setErrorMessage={setErrorMessage} />
                 );
             case 29:
                 return (
-                    <RateExperienceAction count={count} setCount={setCount} setRateExperience={setPinchSpreadRateExperience} setErrorMessage={setErrorMessage} />
+                    <ZoomEffectiveAction count={count} setCount={setCount} setZoomEffective={setDoubleTapNavigate} setErrorMessage={setErrorMessage} />
                 );
             case 30:
                 return (
-                    <ZoomEffectiveAction count={count} setCount={setCount} setZoomEffective={setZoomEffective} setErrorMessage={setErrorMessage} />
+                    <PinchSpreadEmulationAction count={count} setCount={setCount} setPinchSpreadData={setPinchSpreadData} disabled={pinchSpreadDisabled} />
                 );
             case 31:
                 return (
-                    <LikeDoubleTapOrPinchSpreadAction count={count} setCount={setCount} setLikeDoubleTapOrPinchSpread={setLikeDoubleTapOrPinchSpread} />
+                    <BestExperienceAction count={count} setCount={setCount} setBestExperience={setPinchSpreadBestExperience} />
                 );
             case 32:
                 return (
-                    <EasierDoubleTapOrPinchSpreadAction count={count} setCount={setCount} setEasierDoubleTapOrPinchSpread={setEasierDoubleTapOrPinchSpread} />
+                    <ExperienceFeelingAction count={count} setCount={setCount} setExperienceFeeling={setPinchSpreadExperienceFeeling} />
                 );
             case 33:
                 return (
-                    <MonthlyAmountAction count={count} setCount={setCount} setMonthlyAmount={setMonthlyAmount} />
+                    <RateExperienceAction count={count} setCount={setCount} setRateExperience={setPinchSpreadRateExperience} setErrorMessage={setErrorMessage} />
                 );
             case 34:
                 return (
-                    <SubscriptionAction count={count} setCount={setCount} setSubscription={setSubscription} />
+                    <ZoomEffectiveAction count={count} setCount={setCount} setZoomEffective={setZoomEffective} setErrorMessage={setErrorMessage} />
                 );
             case 35:
+                return (
+                    <LikeDoubleTapOrPinchSpreadAction count={count} setCount={setCount} setLikeDoubleTapOrPinchSpread={setLikeDoubleTapOrPinchSpread} />
+                );
+            case 36:
+                return (
+                    <EasierDoubleTapOrPinchSpreadAction count={count} setCount={setCount} setEasierDoubleTapOrPinchSpread={setEasierDoubleTapOrPinchSpread} />
+                );
+            case 37:
+                return (
+                    <MonthlyAmountAction count={count} setCount={setCount} setMonthlyAmount={setMonthlyAmount} />
+                );
+            case 38:
+                return (
+                    <SubscriptionAction count={count} setCount={setCount} setSubscription={setSubscription} />
+                );
+            case 39:
                 if ( subscription === 'yes' ) {
                     return (
                         <SubscriptionAmountAction count={count} setCount={setCount} setSubscriptionAmount={setSubscriptionAmount} />
@@ -457,8 +502,8 @@ const FormContainer = () => {
 
     return  (
         <div className="formContainer flex flex-column justify-between items-center">
-            <div className={`header ${[13, 17, 23, 27].includes(count) ? 'mt1' : 'mt5'} pl1 pr1 flex flex-column items-center justify-center`}>
-                <div>{count < 36 ? `Question #${count}` : 'Thank you!'}</div>
+            <div className={`header ${[13, 18, 25, 30].includes(count) ? 'mt1' : 'mt5'} pl1 pr1 flex flex-column items-center justify-center`}>
+                <div>{count < questions.length - 1 ? `Question #${count}` : 'Thank you!'}</div>
                 <div className="question">{questions[count]}</div>
             </div>
             {renderContent(count)}

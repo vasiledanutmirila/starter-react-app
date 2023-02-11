@@ -512,6 +512,10 @@ const Dashboard = () => {
                             <p>Time spent daily on smartphone/tablet: {((results?.reduce((accumulator, result) => { return accumulator + result.usingSmartDevices }, 0)) / results?.length).toFixed(2) || ''}</p>
                             <p>Easier to navigate: {results?.filter((result) => result.easierSwipeOrScroll === 'scroll' ).length < results?.filter((result) => result.easierSwipeOrScroll === 'swipe' ).length ? 'swipe' : 'scroll'}</p>
                             <p>Easier to zoom: {results?.filter((result) => result.easierDoubleTapOrPinchSpread === 'doubleTap' ).length < results?.filter((result) => result.easierDoubleTapOrPinchSpread === 'pinchSpread' ).length ? 'pinch & spread' : 'doubleTap'}</p>
+                            <p>For swipe, best experience was on: {results?.filter((result) => result.swipeBestExperience === 'phone' ).length < results?.filter((result) => result.swipeBestExperience === 'tablet' ).length ? 'tablet' : 'phone'}</p>
+                            <p>For scroll, best experience was on: {results?.filter((result) => result.scrollBestExperience === 'phone' ).length < results?.filter((result) => result.scrollBestExperience === 'tablet' ).length ? 'tablet' : 'phone'}</p>
+                            <p>For double tap, best experience was on: {results?.filter((result) => result.doubleTapBestExperience === 'phone' ).length < results?.filter((result) => result.doubleTapBestExperience === 'tablet' ).length ? 'tablet' : 'phone'}</p>
+                            <p>For pinch & spread, best experience was on: {results?.filter((result) => result.pinchSpreadBestExperience === 'phone' ).length < results?.filter((result) => result.pinchSpreadBestExperience === 'tablet' ).length ? 'tablet' : 'phone'}</p>
                         </div>
                     </div>)}
                 </div>}
