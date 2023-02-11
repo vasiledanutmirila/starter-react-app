@@ -4,9 +4,9 @@ import '../../styles/Form.css';
 
 let deviceMostTimeSpentValue = {
     smartphone: 1,
-    tablet: 2,
-    smartwatch: 3,
-    smartband: 4,
+    tablet: 1,
+    smartwatch: 1,
+    smartband: 1,
 };
 
 const onChange = (e, { value }, deviceMostTimeSpent, setDeviceMostTimeSpent, key) => {
@@ -17,9 +17,9 @@ const onChange = (e, { value }, deviceMostTimeSpent, setDeviceMostTimeSpent, key
 const DeviceMostTimeSpentContent = ({ errorMessage }) => {
     const [ deviceMostTimeSpent, setDeviceMostTimeSpent ] = useState({
         smartphone: 1,
-        tablet: 2,
-        smartwatch: 3,
-        smartband: 4,
+        tablet: 1,
+        smartwatch: 1,
+        smartband: 1,
     });
     return (
     <div className="content flex flex-column items-center justify-around pl4 pr4">
@@ -209,9 +209,9 @@ const DeviceMostTimeSpentAction = ({ count, setCount, setDeviceMostTimeSpent, se
             setDeviceMostTimeSpent(deviceMostTimeSpentValue);
             deviceMostTimeSpentValue = {
                 smartphone: 1,
-                tablet: 2,
-                smartwatch: 3,
-                smartband: 4,
+                tablet: 1,
+                smartwatch: 1,
+                smartband: 1,
             };
             setErrorMessage('');
         } else {
