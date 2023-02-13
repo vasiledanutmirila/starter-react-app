@@ -21,6 +21,7 @@ import {
     Tooltip,
     Legend
   } from "recharts";
+import Country from './filters/Country';
 
 const Dashboard = () => {
     const [ results, setResults ] = useState();
@@ -241,6 +242,9 @@ const Dashboard = () => {
                         </div>
                         <div className='gender'>
                             <Gender setResults={setResults} />
+                        </div>
+                        <div className='country'>
+                            <Country setResults={setResults} />
                         </div>
                         <div className='education'>
                             <Education setResults={setResults} />

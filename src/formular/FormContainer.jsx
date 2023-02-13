@@ -29,10 +29,11 @@ import { LikeDoubleTapOrPinchSpreadAction, LikeDoubleTapOrPinchSpreadContent } f
 import { EasierDoubleTapOrPinchSpreadAction, EasierDoubleTapOrPinchSpreadContent } from "./questions/EasierDoubleTapOrPinchSpread";
 import { ThanksAction, ThanksContent } from "./questions/Thanks";
 import { BestExperienceAction, BestExperienceContent } from "./questions/BestExoperience";
+import { CountryAction, CountryContent } from "./questions/Country";
 
 const FormContainer = () => {
     const [ count, setCount ] = useState(1);
-    const [ age, setAge ] = useState();
+    const [ birthday, setBirthday ] = useState();
     const [ gender, setGender ] = useState();
     const [ education, setEducation ] = useState();
     const [ usingSmartDevices, setUsingSmartDevices ] = useState();
@@ -76,9 +77,11 @@ const FormContainer = () => {
     const [ scrollBestExperience, setScrollBestExperience ] = useState();
     const [ doubleTapBestExperience, setDoubleTapBestExperience ] = useState();
     const [ pinchSpreadBestExperience, setPinchSpreadBestExperience ] = useState();
+    const [ country, setCountry ] = useState();
 
     const data = {
-        age: age,
+        birthday: birthday,
+        age: Math.abs((new Date(Date.now() - birthday?.getTime())).getUTCFullYear() - 1970),
         gender: gender,
         education: education,
         usingSmartDevices: usingSmartDevices,
@@ -117,12 +120,14 @@ const FormContainer = () => {
         scrollBestExperience: scrollBestExperience,
         doubleTapBestExperience: doubleTapBestExperience,
         pinchSpreadBestExperience: pinchSpreadBestExperience,
+        country: country,
     };
 
     const questions = [
         '',
-        'How old are you?',
+        'What is your birthday?',
         'With what gender do you identify?',
+        'What country are you from?',
         'Last level of education that you finished',
         'For how many years have you been using smart devices?',
         'What are you doing now?',
@@ -167,7 +172,7 @@ const FormContainer = () => {
         switch (number) {
             case 1:
                 return (
-                    <AgeContent errorMessage={errorMessage} />
+                    <AgeContent />
                 );
             case 2:
                 return (
@@ -175,149 +180,153 @@ const FormContainer = () => {
                 );
             case 3:
                 return (
-                    <EducationContent />
+                    <CountryContent />
                 );
             case 4:
                 return (
-                    <UsingSmartDevicesContent errorMessage={errorMessage} />
+                    <EducationContent />
                 );
             case 5:
                 return (
-                    <ActivityContent errorMessage={errorMessage} />
+                    <UsingSmartDevicesContent errorMessage={errorMessage} />
                 );
             case 6:
                 return (
-                    <SwipeOrScrollContent />
+                    <ActivityContent errorMessage={errorMessage} />
                 );
             case 7:
                 return (
-                    <TimeSpentContent errorMessage={errorMessage} />
+                    <SwipeOrScrollContent />
                 );
             case 8:
                 return (
-                    <WorkIndustryContent errorMessage={errorMessage} />
+                    <TimeSpentContent errorMessage={errorMessage} />
                 );
             case 9:
                 return (
-                    <OwnedDevicesContent errorMessage={errorMessage} />
+                    <WorkIndustryContent errorMessage={errorMessage} />
                 );
             case 10:
                 return (
-                    <DeviceMostTimeSpentContent errorMessage={errorMessage} />
+                    <OwnedDevicesContent errorMessage={errorMessage} />
                 );
             case 11:
                 return (
-                    <ZoomContent />
+                    <DeviceMostTimeSpentContent errorMessage={errorMessage} />
                 );
             case 12:
                 return (
-                    <ReasonsContent errorMessage={errorMessage} />
+                    <ZoomContent />
                 );
             case 13:
                 return (
-                    <SwipeEmulationContent setSwipeDisabled={setSwipeDisabled} />
+                    <ReasonsContent errorMessage={errorMessage} />
                 );
             case 14:
                 return (
-                    <BestExperienceContent />
+                    <SwipeEmulationContent setSwipeDisabled={setSwipeDisabled} />
                 );
             case 15:
                 return (
-                    <ExperienceFeelingContent />
+                    <BestExperienceContent />
                 );
             case 16:
                 return (
-                    <RateExperienceContent errorMessage={errorMessage} />
+                    <ExperienceFeelingContent />
                 );
             case 17:
                 return (
-                    <NavigateContent errorMessage={errorMessage} />
+                    <RateExperienceContent errorMessage={errorMessage} />
                 );
             case 18:
                 return (
-                    <ScrollEmulationContent setScrollDisabled={setScrollDisabled} />
+                    <NavigateContent errorMessage={errorMessage} />
                 );
             case 19:
                 return (
-                    <BestExperienceContent />
+                    <ScrollEmulationContent setScrollDisabled={setScrollDisabled} />
                 );
             case 20:
                 return (
-                    <ExperienceFeelingContent />
+                    <BestExperienceContent />
                 );
             case 21:
                 return (
-                    <RateExperienceContent errorMessage={errorMessage} />
+                    <ExperienceFeelingContent />
                 );
             case 22:
                 return (
-                    <NavigateContent errorMessage={errorMessage} />
+                    <RateExperienceContent errorMessage={errorMessage} />
                 );
             case 23:
                 return (
-                    <LikeSwipeOrScrollContent />
+                    <NavigateContent errorMessage={errorMessage} />
                 );
             case 24:
                 return (
-                    <EasierSwipeOrScrollContent />
+                    <LikeSwipeOrScrollContent />
                 );
             case 25:
                 return (
-                    <DoubleTapEmulationContent setDoubleTapDisabled={setDoubleTapDisabled} />
+                    <EasierSwipeOrScrollContent />
                 );
             case 26:
                 return (
-                    <BestExperienceContent />
+                    <DoubleTapEmulationContent setDoubleTapDisabled={setDoubleTapDisabled} />
                 );
             case 27:
                 return (
-                    <ExperienceFeelingContent />
+                    <BestExperienceContent />
                 );
             case 28:
                 return (
-                    <RateExperienceContent errorMessage={errorMessage} />
+                    <ExperienceFeelingContent />
                 );
             case 29:
                 return (
-                    <ZoomEffectiveContent errorMessage={errorMessage} />
+                    <RateExperienceContent errorMessage={errorMessage} />
                 );
             case 30:
                 return (
-                    <PinchSpreadEmulationContent setPinchSpreadDisabled={setPinchSpreadDisabled} />
+                    <ZoomEffectiveContent errorMessage={errorMessage} />
                 );
             case 31:
                 return (
-                    <BestExperienceContent />
+                    <PinchSpreadEmulationContent setPinchSpreadDisabled={setPinchSpreadDisabled} />
                 );
             case 32:
                 return (
-                    <ExperienceFeelingContent />
+                    <BestExperienceContent />
                 );
             case 33:
                 return (
-                    <RateExperienceContent errorMessage={errorMessage} />
+                    <ExperienceFeelingContent />
                 );
             case 34:
                 return (
-                    <ZoomEffectiveContent  errorMessage={errorMessage}/>
+                    <RateExperienceContent errorMessage={errorMessage} />
                 );
             case 35:
                 return (
-                    <LikeDoubleTapOrPinchSpreadContent />
+                    <ZoomEffectiveContent  errorMessage={errorMessage}/>
                 );
             case 36:
                 return (
-                    <EasierDoubleTapOrPinchSpreadContent />
+                    <LikeDoubleTapOrPinchSpreadContent />
                 );
             case 37:
                 return (
-                    <MonthlyAmountContent />
+                    <EasierDoubleTapOrPinchSpreadContent />
                 );
             case 38:
                 return (
-                    <SubscriptionContent />
+                    <MonthlyAmountContent />
                 );
             case 39:
+                return (
+                    <SubscriptionContent />
+                );
+            case 40:
                 return (
                     <SubscriptionAmountContent />
                 );
@@ -333,7 +342,7 @@ const FormContainer = () => {
         switch (number) {
             case 1:
                 return (
-                    <AgeAction count={count} setCount={setCount} setAge={setAge} setErrorMessage={setErrorMessage} />
+                    <AgeAction count={count} setCount={setCount} setBirthday={setBirthday} setErrorMessage={setErrorMessage} />
                 );
             case 2:
                 return (
@@ -341,149 +350,153 @@ const FormContainer = () => {
                 );
             case 3:
                 return (
-                    <EducationAction count={count} setCount={setCount} setEducation={setEducation} />
+                    <CountryAction count={count} setCount={setCount} setCountry={setCountry} />
                 );
             case 4:
                 return (
-                    <UsingSmartDevicesAction count={count} setCount={setCount} setUsingSmartDevices={setUsingSmartDevices} setErrorMessage={setErrorMessage} />
+                    <EducationAction count={count} setCount={setCount} setEducation={setEducation} />
                 );
             case 5:
                 return (
-                    <ActivityAction count={count} setCount={setCount} setActivity={setActivity} setErrorMessage={setErrorMessage} />
+                    <UsingSmartDevicesAction count={count} setCount={setCount} setUsingSmartDevices={setUsingSmartDevices} setErrorMessage={setErrorMessage} />
                 );
             case 6:
                 return (
-                    <SwipeOrScrollAction count={count} setCount={setCount} setSwipeOrScroll={setSwipeOrScroll} />
+                    <ActivityAction count={count} setCount={setCount} setActivity={setActivity} setErrorMessage={setErrorMessage} />
                 );
             case 7:
                 return (
-                    <TimeSpentAction count={count} setCount={setCount} setTimeSpent={setTimeSpent} setErrorMessage={setErrorMessage} />
+                    <SwipeOrScrollAction count={count} setCount={setCount} setSwipeOrScroll={setSwipeOrScroll} />
                 );
             case 8:
                 return (
-                    <WorkIndustryAction count={count} setCount={setCount} setWorkIndustry={setWorkIndustry} setErrorMessage={setErrorMessage} />
+                    <TimeSpentAction count={count} setCount={setCount} setTimeSpent={setTimeSpent} setErrorMessage={setErrorMessage} />
                 );
             case 9:
                 return (
-                    <OwnedDevicesAction count={count} setCount={setCount} setOwnedDevices={setOwnedDevices} setErrorMessage={setErrorMessage} />
+                    <WorkIndustryAction count={count} setCount={setCount} setWorkIndustry={setWorkIndustry} setErrorMessage={setErrorMessage} />
                 );
             case 10:
                 return (
-                    <DeviceMostTimeSpentAction count={count} setCount={setCount} setDeviceMostTimeSpent={setDeviceMostTimeSpent} setErrorMessage={setErrorMessage} />
+                    <OwnedDevicesAction count={count} setCount={setCount} setOwnedDevices={setOwnedDevices} setErrorMessage={setErrorMessage} />
                 );
             case 11:
                 return (
-                    <ZoomAction count={count} setCount={setCount} setZoom={setZoom} />
+                    <DeviceMostTimeSpentAction count={count} setCount={setCount} setDeviceMostTimeSpent={setDeviceMostTimeSpent} setErrorMessage={setErrorMessage} />
                 );
             case 12:
                 return (
-                    <ReasonsAction count={count} setCount={setCount} setReasons={setReasons} setErrorMessage={setErrorMessage} />
+                    <ZoomAction count={count} setCount={setCount} setZoom={setZoom} />
                 );
             case 13:
                 return (
-                    <SwipeEmulationAction count={count} setCount={setCount} setSwipeData={setSwipeData} disabled={swipeDisabled} />
+                    <ReasonsAction count={count} setCount={setCount} setReasons={setReasons} setErrorMessage={setErrorMessage} />
                 );
             case 14:
                 return (
-                    <BestExperienceAction count={count} setCount={setCount} setBestExperience={setSwipeBestExperience} />
+                    <SwipeEmulationAction count={count} setCount={setCount} setSwipeData={setSwipeData} disabled={swipeDisabled} />
                 );
             case 15:
                 return (
-                    <ExperienceFeelingAction count={count} setCount={setCount} setExperienceFeeling={setSwipeExperienceFeeling} />
+                    <BestExperienceAction count={count} setCount={setCount} setBestExperience={setSwipeBestExperience} />
                 );
             case 16:
                 return (
-                    <RateExperienceAction count={count} setCount={setCount} setRateExperience={setSwipeRateExperience} setErrorMessage={setErrorMessage} />
+                    <ExperienceFeelingAction count={count} setCount={setCount} setExperienceFeeling={setSwipeExperienceFeeling} />
                 );
             case 17:
                 return (
-                    <NavigateAction count={count} setCount={setCount} setNavigate={setSwipeNavigate} setErrorMessage={setErrorMessage} />
+                    <RateExperienceAction count={count} setCount={setCount} setRateExperience={setSwipeRateExperience} setErrorMessage={setErrorMessage} />
                 );
             case 18:
                 return (
-                    <ScrollEmulationAction count={count} setCount={setCount} setScrollData={setScrollData} disabled={scrollDisabled} />
+                    <NavigateAction count={count} setCount={setCount} setNavigate={setSwipeNavigate} setErrorMessage={setErrorMessage} />
                 );
             case 19:
                 return (
-                    <BestExperienceAction count={count} setCount={setCount} setBestExperience={setScrollBestExperience} />
+                    <ScrollEmulationAction count={count} setCount={setCount} setScrollData={setScrollData} disabled={scrollDisabled} />
                 );
             case 20:
                 return (
-                    <ExperienceFeelingAction count={count} setCount={setCount} setExperienceFeeling={setScrollExperienceFeeling} />
+                    <BestExperienceAction count={count} setCount={setCount} setBestExperience={setScrollBestExperience} />
                 );
             case 21:
                 return (
-                    <RateExperienceAction count={count} setCount={setCount} setRateExperience={setScrollRateExperience} setErrorMessage={setErrorMessage} />
+                    <ExperienceFeelingAction count={count} setCount={setCount} setExperienceFeeling={setScrollExperienceFeeling} />
                 );
             case 22:
                 return (
-                    <NavigateAction count={count} setCount={setCount} setNavigate={setScrollNavigate} setErrorMessage={setErrorMessage} />
+                    <RateExperienceAction count={count} setCount={setCount} setRateExperience={setScrollRateExperience} setErrorMessage={setErrorMessage} />
                 );
             case 23:
                 return (
-                    <LikeSwipeOrScrollAction count={count} setCount={setCount} setLikeSwipeOrScroll={setLikeSwipeOrScroll} />
+                    <NavigateAction count={count} setCount={setCount} setNavigate={setScrollNavigate} setErrorMessage={setErrorMessage} />
                 );
             case 24:
                 return (
-                    <EasierSwipeOrScrollAction count={count} setCount={setCount} setEasierSwipeOrScroll={setEasierSwipeOrScroll} />
+                    <LikeSwipeOrScrollAction count={count} setCount={setCount} setLikeSwipeOrScroll={setLikeSwipeOrScroll} />
                 );
             case 25:
                 return (
-                    <DoubleTapEmulationAction count={count} setCount={setCount} setDoubleTapData={setDoubleTapData} disabled={doubleTapDisabled} />
+                    <EasierSwipeOrScrollAction count={count} setCount={setCount} setEasierSwipeOrScroll={setEasierSwipeOrScroll} />
                 );
             case 26:
                 return (
-                    <BestExperienceAction count={count} setCount={setCount} setBestExperience={setDoubleTapBestExperience} />
+                    <DoubleTapEmulationAction count={count} setCount={setCount} setDoubleTapData={setDoubleTapData} disabled={doubleTapDisabled} />
                 );
             case 27:
                 return (
-                    <ExperienceFeelingAction count={count} setCount={setCount} setExperienceFeeling={setDoubleTapExperienceFeeling} />
+                    <BestExperienceAction count={count} setCount={setCount} setBestExperience={setDoubleTapBestExperience} />
                 );
             case 28:
                 return (
-                    <RateExperienceAction count={count} setCount={setCount} setRateExperience={setDoubleTapRateExperience} setErrorMessage={setErrorMessage} />
+                    <ExperienceFeelingAction count={count} setCount={setCount} setExperienceFeeling={setDoubleTapExperienceFeeling} />
                 );
             case 29:
                 return (
-                    <ZoomEffectiveAction count={count} setCount={setCount} setZoomEffective={setDoubleTapNavigate} setErrorMessage={setErrorMessage} />
+                    <RateExperienceAction count={count} setCount={setCount} setRateExperience={setDoubleTapRateExperience} setErrorMessage={setErrorMessage} />
                 );
             case 30:
                 return (
-                    <PinchSpreadEmulationAction count={count} setCount={setCount} setPinchSpreadData={setPinchSpreadData} disabled={pinchSpreadDisabled} />
+                    <ZoomEffectiveAction count={count} setCount={setCount} setZoomEffective={setDoubleTapNavigate} setErrorMessage={setErrorMessage} />
                 );
             case 31:
                 return (
-                    <BestExperienceAction count={count} setCount={setCount} setBestExperience={setPinchSpreadBestExperience} />
+                    <PinchSpreadEmulationAction count={count} setCount={setCount} setPinchSpreadData={setPinchSpreadData} disabled={pinchSpreadDisabled} />
                 );
             case 32:
                 return (
-                    <ExperienceFeelingAction count={count} setCount={setCount} setExperienceFeeling={setPinchSpreadExperienceFeeling} />
+                    <BestExperienceAction count={count} setCount={setCount} setBestExperience={setPinchSpreadBestExperience} />
                 );
             case 33:
                 return (
-                    <RateExperienceAction count={count} setCount={setCount} setRateExperience={setPinchSpreadRateExperience} setErrorMessage={setErrorMessage} />
+                    <ExperienceFeelingAction count={count} setCount={setCount} setExperienceFeeling={setPinchSpreadExperienceFeeling} />
                 );
             case 34:
                 return (
-                    <ZoomEffectiveAction count={count} setCount={setCount} setZoomEffective={setZoomEffective} setErrorMessage={setErrorMessage} />
+                    <RateExperienceAction count={count} setCount={setCount} setRateExperience={setPinchSpreadRateExperience} setErrorMessage={setErrorMessage} />
                 );
             case 35:
                 return (
-                    <LikeDoubleTapOrPinchSpreadAction count={count} setCount={setCount} setLikeDoubleTapOrPinchSpread={setLikeDoubleTapOrPinchSpread} />
+                    <ZoomEffectiveAction count={count} setCount={setCount} setZoomEffective={setZoomEffective} setErrorMessage={setErrorMessage} />
                 );
             case 36:
                 return (
-                    <EasierDoubleTapOrPinchSpreadAction count={count} setCount={setCount} setEasierDoubleTapOrPinchSpread={setEasierDoubleTapOrPinchSpread} />
+                    <LikeDoubleTapOrPinchSpreadAction count={count} setCount={setCount} setLikeDoubleTapOrPinchSpread={setLikeDoubleTapOrPinchSpread} />
                 );
             case 37:
                 return (
-                    <MonthlyAmountAction count={count} setCount={setCount} setMonthlyAmount={setMonthlyAmount} />
+                    <EasierDoubleTapOrPinchSpreadAction count={count} setCount={setCount} setEasierDoubleTapOrPinchSpread={setEasierDoubleTapOrPinchSpread} />
                 );
             case 38:
                 return (
-                    <SubscriptionAction count={count} setCount={setCount} setSubscription={setSubscription} />
+                    <MonthlyAmountAction count={count} setCount={setCount} setMonthlyAmount={setMonthlyAmount} />
                 );
             case 39:
+                return (
+                    <SubscriptionAction count={count} setCount={setCount} setSubscription={setSubscription} />
+                );
+            case 40:
                 if ( subscription === 'yes' ) {
                     return (
                         <SubscriptionAmountAction count={count} setCount={setCount} setSubscriptionAmount={setSubscriptionAmount} />
@@ -502,7 +515,7 @@ const FormContainer = () => {
 
     return  (
         <div className="formContainer flex flex-column justify-between items-center">
-            <div className={`header ${[13, 18, 25, 30].includes(count) ? 'mt1' : 'mt5'} pl1 pr1 flex flex-column items-center justify-center`}>
+            <div className={`header ${[14, 19, 26, 31].includes(count) ? 'mt1' : 'mt5'} pl1 pr1 flex flex-column items-center justify-center`}>
                 <div>{count < questions.length - 1 ? `Question #${count}` : 'Thank you!'}</div>
                 <div className="question">{questions[count]}</div>
             </div>
